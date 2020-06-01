@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BYOBoba</title>
+</head>
+<body>
+<!--Nav bar, will display on all pages-->
+<div class="section navigation-bar container">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-lg  navbar-light">
+                <a class="navbar-brand" href="{{url_for('home')}}">BYOBoba</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <!--Browse Drinks Link- always shown-->
+                        <li>
+                            <a class="nav-link" href="{{url_for('drinks')}}">Browse Drinks</a>
+                        </li>
+                        <!--Add New Drink- shown only when logged in-->
+                        {% if session.user %}
+                        <li>
+                            <a class="nav-link" href="{{url_for('add')}}">Add New Drink</a>
+                        </li>
+                        <!--if user is logged in, logout Button displayed -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                        </li>
+                        <!--if user is logged in, profile button is displayed -->
+                        <li class="nav-item">
+                            <a class="nav-link h" href="{{url_for('profile')}}">{{session.user}}</a>
+                        </li>
+                        {% endif %}
+                        <!--if user is not logged in, login button is displayed-->
+                        {% if not session.user %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                        </li>
+                        <!--if user is not logged in, register button is displayed-->
+                        <li class="nav-item">
+                            <a class="nav-link  {% if 'register' in request.path %} active {% endif %}"
+                               href="{{url_for('register')}}">Register</a>
+                        </li>
+                        {% endif %} 
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!--Main Content-->
+<div class="main-content section">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!--Footer content- all pages-->
+<section class="footer">
+    <div class="container-fluid text-center">
+        <div class="col-12 no-gutters">
+            <div class="card-body footer-style bg-dark">
+                <h2 class="card-title">&copy;BYOBoba</h2>
+                <h5 class="card-text">Amy Brucker</h5>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--All scripts on the page-->
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+</body>
+</html>
