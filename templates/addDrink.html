@@ -1,0 +1,115 @@
+{% extends 'base.html' %} 
+{% block title %}Add Tea{% endblock %}
+{% block content %}
+<!--If the user is logged in, they can add a drink to the database-->
+<div class="container">
+  <div class="row">
+    <form class="col-12" action="{{ url_for('drink', drink_name='insertDrink') }}" method="POST">
+      <div class="row">
+      <h2>Welcome! Please create your favorite Boba tea drink to share with others!</h2>
+      <!--Drink Name-->
+        <div class="input-field col-12">
+          <input id="drinkName" name="drinkName" type="text" class="validate" required>
+          <label for="drinkName">Drink Name</label>
+        </div>
+      </div>
+      <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
+    <div>
+      <label for="drinktype" class="label-drink-type">Drink Type</label>
+      <div class="row drink-type" id="addDrinkType">
+        {% for drink in drinkType|sort(attribute='drinkType') %}
+              <select class="custom-select mr-sm-2" id="drinkType">
+                <option selected>Choose a Drink Type</option>
+                <option value="1">Milk Tea</option>
+                <option value="2">Classic Tea</option>
+                <option value="3">Slushie</option>
+              </select>
+    </div>
+      <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
+      <div>
+      <label for="teatype" class="label-drink-type">Tea Type</label>
+      <div class="row tea-type" id="addTeaType">
+        {% for tea in teaType|sort(attribute='teaType') %}
+        <div class="col-12 tea-type">
+          <p>
+            <label>
+              <input type="checkbox" name="teaType" value="{{ tea.teaType }}" required />
+              <span>{{ tea.teaType }}</span>
+            </label>
+          </p>
+        </div>
+        {% endfor %}
+        <!--Caffiene? True or False Value-->
+        <label for="caffine" class="label-caffine">Caffine or Decaf?</label>
+        <div class="form-check form-check-inline addCaf">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label" for="inlineRadio1">Caffine</label>
+        </div>
+        <div class="form-check form-check-inline addCaf">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label" for="inlineRadio2">Decaf</label>
+        </div>
+      </div>
+      <!--Topping Type-->
+      </div>
+        <label for="topping" class="label-topping">Topping Type</label>
+      <div class="row topping" id="addTopping">
+        {% for top in toppings|sort(attribute='toppingType') %}
+        <div class="col-12 topping-type">
+          <p>
+            <label>
+              <input type="checkbox" name="toppingType" value="{{ top.toppingType }}" required />
+              <span>{{ top.toppingType }}</span>
+            </label>
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+      <!--Sweetness Level-->
+            </div>
+        <label for="sweet" class="label-sweet">Sweetness Level</label>
+      <div class="row drink-sweet" id="addSweet">
+        {% for sweet in sweetLevel|sort(attribute='sweetLevel') %}
+        <div class="col-12 sweet">
+          <p>
+            <label>
+              <input type="checkbox" name="sweet" value="{{ sugar.sweetLevel }}" required />
+              <span>{{ sugar.sweetLevel }}</span>
+            </label>
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+      <!--Ice Level-->
+     <div>
+        <label for="ice" class="label-ice">Ice</label>
+      <div class="row drink-ice" id="addIce">
+        {% for ice in iceLevel|sort(attribute='iceLevel') %}
+        <div class="col-12 ice">
+          <p>
+            <label>
+              <input type="checkbox" name="ice" value="{{ ice.iceLevel }}" required />
+              <span>{{ ice.iceLevel }}</span>
+            </label>
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+      <!--Add Picture, optional-->
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="addDrinkImage">Drink Picture</label>
+          <input type="file" class="form-control-file" id="addDrinkImage">
+        </div>
+      </div>
+      <!--Submit Button-->
+      <div class="row">
+        <div class="col-12 center-align">
+          <button id="add-button" class="btn" type="submit">Add Bubble Tea</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
