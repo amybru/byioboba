@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+<!--To add or edit drinks, the user must log in. If new user, they must register-->
+<section id="registration-form" class="registration container">
+    <div class="row register-margin">
+        <div class="col-12">
+            <h3 class="register-heading">Register</h3>
+            <form id="formOverview" action="/register" method="POST" class="full-form">
+                <div class="form-group card card-body">
+                    <!--Username-->
+                    <label id="userLabel" class="strong-label">Username</label>
+                    <input id="username" name="username" type="text" placeholder="Maximum 12 Characters" class="validate user-feedback form-control" required>
+                    <!--Email-->
+                    <label id="emailLabel" class="strong-label">Email</label>
+                    <input id="email" name="email" type="email" placeholder="Email" class="validate form-control" required>
+                    <!--Password-->
+                    <label id="passwordLabel" class="strong-label">Password</label>
+                    <input id="password" name="user_password" type="password" placeholder="Minimum 8 Characters" class="validate form-control" required>
+                    <!--Confirm password, user must write password again to confirm the correct password-->
+                    <label id="confirm-password-label" class="strong-label">Confirm Password</label>
+                    <input id="confirm-password" name="user_password1" type="password" placeholder="Type your Password Again" class="validate form-control" required>
+                </div>
+                <button id="submit-registration" type="submit" name="action" class="btn btn-success">Submit</button>
+            </form>
+            <!--If user already has an account, user can visit the log in page-->
+            <div class="center-align">
+                Already have an account? <a href="#login" class="login-link">Log in here</a>.
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
