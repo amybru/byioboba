@@ -1,11 +1,13 @@
+import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
+if os.path.exists("env.py"):
+    import env
 app.config["MONGO_DBNAME"] = 'byob_boba'
-app.config["MONGO_URI"] = 'mongodb+srv://abru:<password>@cluster0-t8ogt.mongodb.net/test?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
 # Home Page
@@ -17,6 +19,14 @@ def view_home():
 @app.route('/get_drinks', methods=['GET', 'POST'])
 def get_drink():
     drinks_list = tea.db.drinks.find()
+class Categories:
+    drink_type = 'Drink Type'
+    tea_type = 'Tea Type'
+    toppings = 'Toppings'
+    @staticmethod
+    def all_categories():
+        return [Categories.drink_type, Categories.tea_type, Categories.toppings]
+
 # Filter results
 def search_drinks(search):
     drinks = []
