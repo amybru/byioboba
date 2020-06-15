@@ -1,0 +1,92 @@
+{% extends base.html %} 
+{% block title %}Browse Teas{% endblock %}
+{% block content %}
+<!--To view our database of bubble tea drinks-->
+<div class="row center-align">
+    <div class="col-12">
+        <h1 class="page-title">Bubble Teas</h1>
+    </div>
+</div>
+
+<!--Search by filtering drink options-->
+<div class="row center-align">
+    <form id="filter_form" method="POST" action="{{ url_for('drinks.drinks', page=1) }}">
+        <ul class="collapsible filter-option">
+            <li>
+                <div class="collapsible-header filter-header">
+                    <h3 class="filter-form-title">Filter</h3>
+                </div>
+                <div class="collapsible-body collection collapsible-collection filter-body">
+                    <!--How to use our filter instructions for better user experience-->
+                    <div class="col-12">
+                        <h6 class="helper">Filter by one or multiple categories</h6>
+                    </div>
+                    <div class="row filter-form-wrapper">
+                        <!--Drink types dropdown menu-->
+                        <div class="input-field col-12">
+                            <select id="type" name="type" class="form-control validate">
+                                <option value="" disabled selected>Drink Type</option>
+                                {% for drink in drinkType %}
+                                <option value="{{ drink }}">{{ drink|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <!--Tea Types Category Drop Down-->
+                        <div class="input-field col-12">
+                            <select id="occasion" name="occasion" class="form-control validate">
+                                <option value="" disabled selected>Tea Type</option>
+                                {% for tea in teaType %}
+                                <option value="{{ tea }}">{{ tea|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <!--Topping dropdown menu-->
+                        <div class="input-field col-12">
+                            <select id="toppings" name="toppings" class="form-control validate">
+                                <option value="" disabled selected>Toppings</option>
+                                {% for top in toppings %}
+                                <option value="{{ toppings }}">{{ toppings|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <!--Submit Button-->
+                        <div class="row submit-button-wrapper">
+                            <div class="col-6">
+                                <button id="filter_btn" class="btn" type="submit" aria-label="Filter button">
+                                    <span class="hide-on-small-and-down">Filter</span>
+                                    <i class="fas fa-filter icon-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <!--Reset Button-->
+                            <div class="col s6">
+                                <a class="btn" href="{{ url_for('drink.drinks', page=1) }}" aria-label="Reset page button">
+                                    <span class="hide-on-small-and-down">Reset</span>
+                                    <i class="fas fa-undo-alt icon-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+    
+    <!--Card displayed for each drink in database, allowing for filters if used-->
+<div class="row center-align">
+    <!--WITHOUT SEARCH-->
+    {% if search_results == "" %}
+        {% for drink in drinks %}
+        <!--Only display if the deleted field value is false-->
+            {% include "partials/drinkCard.html" %}
+        {% endfor %}
+        
+    <!--WITH SEARCH-->
+    {% else %}
+        {% for recipe in search_results %}
+        <!--Only display recipe if the deleted field value is false-->
+            {% include "partials/drinkCard.html" %}
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
