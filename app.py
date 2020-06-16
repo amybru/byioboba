@@ -2,12 +2,17 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_wtf import FlaskForm,
+from wtforms import StringField, TextField, SubmitField
+from wtforms.validators import DataRequired, Length
 
 app = Flask(__name__)
 
+
 if os.path.exists("env.py"):
     import env
-app.config["MONGO_DBNAME"] = 'byob_boba'
+    app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+
 mongo = PyMongo(app)
 
 # Home Page
@@ -19,13 +24,14 @@ def view_home():
 @app.route('/get_drinks', methods=['GET', 'POST'])
 def get_drink():
     drinks_list = tea.db.drinks.find()
-class Categories:
-    drink_type = 'Drink Type'
-    tea_type = 'Tea Type'
-    toppings = 'Toppings'
-    @staticmethod
-    def all_categories():
-        return [Categories.drink_type, Categories.tea_type, Categories.toppings]
+
+    class Categories:
+        drink_type = 'Drink Type'
+        tea_type = 'Tea Type'
+        toppings = 'Toppings'
+        @staticmethod
+        def all_categories():
+            return [Categories.drink_type, Categories.tea_type, Categories.toppings]
 
 # Filter results
 def search_drinks(search):
@@ -65,10 +71,26 @@ def search_drinks(search):
 # Add Drink form
 @app.route("/add_drink", methods=['POST'])
 def add_drink():
-    add = mongo.db.drinks
-    drink.insert_one(request.form.to_dict())
-    return redirect(url_for('get_drinks'))
+    form = addDrinkForm()
+    if form.validate_on_submit():
+        return redirect(url_for('get_drinks'))
+    return render_template('drinks.html', form=form)
 
+class addDrinkForm(FlaskForm):
+    """Add Drink Form"""
+    drink_type = StringField('Drink Type', [
+        DataRequired()])
+    tea_type = StringField('Tea Type', [
+        DataRequired()])
+    caf = TextField('Caffeine', [
+        DataRequired()])
+    topping = TextField('Topping', [
+        DataRequired()])
+    sweet_level = TextField('Sweetness Level', [
+        DataRequired()])
+    ice_level = TextField('Ice Level', [
+        DataRequired()])
+    submit = SubmitField('Submit')
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT'), debug=True)
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')))

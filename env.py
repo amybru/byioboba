@@ -1,2 +1,2 @@
 import os
-os.environ.setdefault("MONGO_URI", 'mongodb+srv://abru:<password>@cluster0-t8ogt.mongodb.net/test?retryWrites=true&w=majority')
+os.environ.setdefault("MONGO_URI", 'mongodb+srv://abru:0lP4LTyxDZyIhOSa@cluster0-t8ogt.mongodb.net/BYOBBOBA?retryWrites=true&w=majority')
