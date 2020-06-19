@@ -4,78 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link type="text/css" rel="stylesheet" href="static/css/style.css">
     <title>BYOBoba</title>
 </head>
 <body>
 <!--Nav bar, will display on all pages-->
-<div class="section navigation-bar container">
-    <div class="row">
-        <div class="col-12">
-            <nav class="navbar navbar-expand-lg  navbar-light">
-                <a class="navbar-brand" href="{{url_for('home')}}">BYOBoba</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <nav class="nav-wrapper" id="mainNav">
+                <a class="brand-logo center" href="{{url_for('home')}}">BYOBoba</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <!--Browse Drinks Link- always shown-->
                         <li>
-                            <a class="nav-link" href="{{url_for('drinks')}}">Browse Drinks</a>
+                            <a class="nav-link" href="{{url_for('get_drink')}}">Browse Drinks</a>
                         </li>
                         <!--Add New Drink- shown only when logged in-->
-                        {% if session.user %}
                         <li>
-                            <a class="nav-link" href="{{url_for('add')}}">Add New Drink</a>
+                            <a class="btn-large waves-effect waves-light" href="{{url_for('add_drink')}}">
+                                <i class="material-icons">add</i>
+                            </a>
                         </li>
+                    </ul>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        {% if session.user %}
                         <!--if user is logged in, logout Button displayed -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
+                            <a class="nav-link" href="#"><i class="material-icons right">settings</i>Logout</a>
                         </li>
                         <!--if user is logged in, profile button is displayed -->
                         <li class="nav-item">
-                            <a class="nav-link h" href="{{url_for('profile')}}">{{session.user}}</a>
+                            <a class="nav-link h" href="#"><i class="material-icons right">account_circle</i>{{session.user}}</a>
                         </li>
                         {% endif %}
                         <!--if user is not logged in, login button is displayed-->
                         {% if not session.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('login')}}">Login</a>
+                            <a class="nav-link" href="#"><i class="material-icons right">person</i>Login</a>
                         </li>
                         <!--if user is not logged in, register button is displayed-->
                         <li class="nav-item">
                             <a class="nav-link  {% if 'register' in request.path %} active {% endif %}"
-                               href="{{url_for('register')}}">Register</a>
+                               href="#"><i class="material-icons right">person_add</i>Register</a>
                         </li>
                         {% endif %} 
                     </ul>
                 </div>
             </nav>
-        </div>
-    </div>
-</div>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>
+
 
 <!--Main Content-->
-<div class="main-content section">
+<div class="main-content container">
     {% block content %}
     {% endblock %}
 </div>
 
 <!--Footer content- all pages-->
-<section class="footer">
-    <div class="container-fluid text-center">
-        <div class="col-12 no-gutters">
-            <div class="card-body footer-style bg-dark">
-                <h2 class="card-title">&copy;BYOBoba</h2>
-                <h5 class="card-text">Amy Brucker</h5>
+<footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <h5 class="footerTitle center">&copy;BYOBoba</h5>
+                <h5 class="grey-text text-lighten-4 center">Amy Brucker</h5>
             </div>
         </div>
-    </div>
-</section>
+</footer>
 
 <!--All scripts on the page-->
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="static/js/navbar.js"></script>
 </body>
 </html>
