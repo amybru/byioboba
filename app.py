@@ -1,27 +1,31 @@
 import os
+from os import path
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from flask_wtf import FlaskForm,
+from flask_wtf import FlaskForm
 from wtforms import StringField, TextField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 app = Flask(__name__)
 
 
-if os.path.exists("env.py"):
+if path.exists('env.py'):
     import env
-    app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config['MONGO_DBNAME'] = os.environ.get('MONGO_DBNAME')
 
 mongo = PyMongo(app)
 
 # Home Page
+@app.route('/')
 @app.route('/home')
-def view_home():
+def home():
     return render_template("index.html")
 
 # Get Drinks: View all drinks in database with the option to filter
-@app.route('/get_drinks', methods=['GET', 'POST'])
+@app.route('/get_drink', methods=['GET', 'POST'])
 def get_drink():
     drinks_list = tea.db.drinks.find()
 
@@ -78,6 +82,8 @@ def add_drink():
 
 class addDrinkForm(FlaskForm):
     """Add Drink Form"""
+    name = StringField('Drink Name', [
+        DataRequired()])
     drink_type = StringField('Drink Type', [
         DataRequired()])
     tea_type = StringField('Tea Type', [
@@ -93,4 +99,4 @@ class addDrinkForm(FlaskForm):
     submit = SubmitField('Submit')
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')))
+    app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
