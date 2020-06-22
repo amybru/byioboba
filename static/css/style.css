@@ -1,0 +1,43 @@
+/* General Styling */
+body {
+    background-image: url("/static/img/bkgrnd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Navbar Styling */
+.nav-wrapper {
+    background-color: pink;
+    color: white;
+}
+
+
+/* Home page styles */
+.home-jumbotron {
+    background-image: url("/static/img/boba.jpg");
+    width:100%;
+    height:35em;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding-top: 8em;
+}
+
+.home-jumbotron h1 {
+    font-family: 'Sriracha', cursive;
+}
+
+.about {
+    margin-top: 15px; 
+}
+
+.about-img {
+    width: 200px;
+    height: 200px;
+}
+
+#yummy {      
+    text-align: center;
+}

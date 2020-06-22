@@ -6,10 +6,13 @@
   <h1 class="display-4">BYOBoba</h1>
   <p class="lead">Welcome to BYOBoba! Find or add your favorite Boba Tea Drink.</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Browse Drinks</a>
+    <a class="btn btn-primary btn-lg" href="{{url_for('get_drink')}}" role="button">Browse Drinks</a>
   </p>
 </div>
-<div class="about">
+<div class="about row">
+    <div class="col s5 about-img"><img src="static/img/tapioca.jpg" alt="Tapioca Pearls">
+    </div>
+    <div class="col s7 about-text">
     <h4>What is Boba Tea?</h4>
     <p>Before we go any further, there is a few things you must know about Boba!</p>
     <ul>
@@ -18,10 +21,15 @@
         <li>It has become one of the most popular drink desserts in Asia</li>
         <li>There are many different kinds of Boba tea- sweet, milky, or fruity</li>
     </ul>
+    </div>
 </div>
 <div class="divider"></div>
-<div class="anatomy">
+<div class="anatomy row">
+    <div class="anatomy-text col s7">
     <h4>Anatomy of Bubble tea</h4>
+    </div>
+    <div class="anatomy-image col s5">
+    </div>
 </div>
 <div class="divider"></div>
 <div class="card-panel hoverable" id="yummy">
