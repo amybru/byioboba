@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div id="drinkResponse" class="row view-drink">
+    <div class="col s12 m6 center">
+        <h3 class="bold-headers">{{boba.drink_name}}</h3>
+        <img id="view-image" src="{{boba.drink_image}}" alt="{{boba.drink_name}}"
+            onerror="this.onerror=null;this.src='/static/images/noImage.jpg';">
+        
+    <div class="col s12 m6">
+        <h4 class="bold-headers">Drink Type</h4>
+        <ul class="ingredients-list">
+            <li><h5 class="drinkType">{{boba.drink_type}}</h5></li>
+            <li><h5 class="teaType">{{boba.tea_type}}</h5></li>
+            <li><h5 class="caf">{{boba.decaf}}</h5></li>
+            <li><h5 class="topping">{{boba.top}}</h5></li>
+            <li><h5 class="sweet">{{boba.sweet_level}}</h5></li>
+            <li><h5 class="drinkType">{{boba.ice}}</h5></li>
+        </ul>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
