@@ -32,7 +32,8 @@
     <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
         <div class="input-field col s12 m4">
             <select class="icons">
-                {% for drink in drinks %}
+                <option value="" disabled selected>Choose a Tea Type</option>
+                {% for tea_type in teas %}
                  <option value="{{tea_type.teas}}">{{tea_type.teas}}</option>
                 {% endfor %}
             </select>
@@ -42,7 +43,7 @@
      <!--Caffeine? True or False Value-->
         <div class="switch col s12 m4" name="decaf">
             <label>
-            <input type="checkbox">
+            <input type="checkbox" id="is_decaf" name="is_decaf">
             <span class="lever"></span>
                 Decaf?
             </label>
@@ -135,7 +136,7 @@
       <!--Submit Button-->
       <div class="row">
         <div class="col-12 center-align">
-         <a class="waves-effect waves-light btn"><i class="material-icons right">add</i>Add Bubble Tea</a>
+         <a href="{{url_for('insert_drink', drink_id=boba._id)}}" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Add Bubble Tea</a>
         </div>
     </div>
     </form>

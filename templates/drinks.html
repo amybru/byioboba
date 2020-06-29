@@ -10,7 +10,7 @@
 <!--Search by filtering drink options-->
 <div class="row">
 <form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
-   <div class="input-field col s12">
+   <div class="input-field col s12 m6">
       <select multiple>
          <option value="" disabled selected>Filter</option>
          <option value="1">Drink Type</option>
@@ -21,14 +21,14 @@
       <label>Filter By One Category</label>
    <!--Submit Button-->
    <div class="row submit-button-wrapper">
-      <div class="col s6">
+      <div class="col s6 m3">
          <button id="filter_btn" class="btn" type="submit" aria-label="Filter button">
          <span class="hide-on-small-and-down">Filter</span>
          <i class="material-icons right">filter_list</i>
          </button>
       </div>
       <!--Reset Button-->
-      <div class="col s6">
+      <div class="col s6 m3">
          <a class="btn" href="{{ url_for('get_drink') }}" aria-label="Reset page button">
          <span class="hide-on-small-and-down">Reset</span>
          <i class="material-icons right">undo</i>
@@ -42,13 +42,12 @@
 <div>
     <ul class="collection">
     <li class="collection-item avatar">
-      <img src="{{ drink.drinkImage }}" alt="{{ drink.drinkName }}" class="circle">
-      <span class="title">{{drink.drinkName}}</span>
-      <a href="{{ url_for('drink', drink_name=item_value['_id'] ) }}"><h5 class="card-title">{{ item_value["name"] }}</h5></a>
+      <img src="{{ boba.drink_Image }}" alt="{{ boba.drink_name }}" class="circle">
+      <span class="title">{{boba.drink_name}}</span>
+      <a href="{{ url_for('drink', drink_name=item_value['_id'] ) }}"><h5 class="card-title">{{ item_value["drink_name"] }}</h5></a>
       <p>First Line <br>
          Second Line
       </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
     </li>
   </ul>
 </div>
