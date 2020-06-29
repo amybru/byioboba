@@ -9,7 +9,6 @@ from wtforms.validators import DataRequired, Length
 
 app = Flask(__name__)
 
-
 if path.exists('env.py'):
     import env
 
@@ -27,76 +26,55 @@ def home():
 # Get Drinks: View all drinks in database with the option to filter
 @app.route('/get_drink', methods=['GET', 'POST'])
 def get_drink():
-    drinks_list = tea.db.drinks.find()
+    return render_template('drinks.html', boba=mongo.db.boba.find())
 
-    class Categories:
-        drink_type = 'Drink Type'
-        tea_type = 'Tea Type'
-        toppings = 'Toppings'
-        @staticmethod
-        def all_categories():
-            return [Categories.drink_type, Categories.tea_type, Categories.toppings]
-
-# Filter results
-def search_drinks(search):
-    drinks = []
-    search_string = search.data['search']
-    if search_string:
-        if search.data['select'] == 'Drink Type':
-            qry = db_session.query(Drinks, drink_type).filter(
-                drink_type==drinks.drink_type).filter(
-                    drink_type.contains(search_string))
-            results = [item[0] for item in qry.all()]
-        elif search.data['select'] == 'Tea Type':
-            qry = db_session.query(Drinks).filter(
-                Drinks.tea_type.contains(search_string))
-            results = qry.all()
-        elif search.data['select'] == 'Toppings':
-            qry = db_session.query(Drinks).filter(
-                Drinks.toppings.contains(search_string))
-            results = qry.all()
-        else:
-            qry = db_session.query(Drinks)
-            results = qry.all()
-    else:
-        qry = db_session.query(Drinks)
-        results = qry.all()
-
-    if not results:
-        flash('No results found!')
-        return redirect('/')
-    else:
-        # display results
-        table = Drinks(results)
-        table.border = True
-        return render_template('drinks.html', tea=mongo.db.drinks.find())
-
+# Function to filter available drinks
 
 # Add Drink form
-@app.route("/add_drink", methods=['POST'])
+@app.route("/add_drink")
 def add_drink():
-    form = addDrinkForm()
-    if form.validate_on_submit():
-        return redirect(url_for('get_drinks'))
-    return render_template('drinks.html', form=form)
+    return render_template('addDrink.html',
+    boba=mongo.db.boba.find())
 
-class addDrinkForm(FlaskForm):
-    """Add Drink Form"""
-    name = StringField('Drink Name', [
-        DataRequired()])
-    drink_type = StringField('Drink Type', [
-        DataRequired()])
-    tea_type = StringField('Tea Type', [
-        DataRequired()])
-    caf = TextField('Caffeine', [
-        DataRequired()])
-    topping = TextField('Topping', [
-        DataRequired()])
-    sweet_level = TextField('Sweetness Level', [
-        DataRequired()])
-    ice_level = TextField('Ice Level', [
-        DataRequired()])
-    submit = SubmitField('Submit')
+# Function to post user data to the database
+@app.route('/insert_drink', methods=['POST'])
+def insert_drink():
+    boba = mongo.db.boba
+    boba.insert_one(request.form.to_dict())
+    return redirect(url_for('get_drink'))
+
+# Edit Drink Form
+@app.route('/edit_drink/<drink_id>', methods=["POST"])
+def edit_drink(drink_id):
+    boba = mongo.db.boba.find_one({"_id": ObjectId(drink_id)})
+    drink_type = mongo.db.drinks.find()
+    tea_type = mongo.db.teas.find()
+    top = mongo.db.top.find()
+    ice = mongo.db.ice.find()
+    sweet = mongo.db.sweet.find()
+    return render_template('editDrink.html',  boba=drink_id, drinks=drink_type, teas=tea_type, top=top, ice=ice, sweet=sweet)
+
+# Update Drink in database
+@app.route('/update_drink/<drink_name>', methods=["POST"])
+def update_location(location_id):
+    boba = mongo.db.boba
+    boba.update({'_id': ObjectId(drink_id)},
+        {
+            'drink_name': request.form.get('drink_name'),
+            'drink_type': request.form.get('drink_type'),
+            'tea_type': request.form.get('tea_type'),
+            'decaf': request.form.get('caffeine'),
+            'top': request.form.get('topping'),
+            'sweet': request.form.get('sweet_level'),
+            'ice': request.form.get('ice')
+        })
+    return redirect(url_for('get_drink'))
+
+# Delete Drink From Database
+@app.route('/delete_drink/<drink_id>')
+def delete_drink(drink_id):
+    mongo.db.tasks.remove({'_id': ObjectId(drink_id)})
+    return redirect(url_for('get_drink'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), port=int(os.environ.get('PORT')), debug=True)
