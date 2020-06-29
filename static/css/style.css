@@ -6,9 +6,13 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.button {
+    background-color: #3f6335;
+}
+
 /* Navbar Styling */
 .nav-wrapper {
-    background-color: pink;
+    background-color: #adbf51;
     color: white;
 }
 
@@ -33,11 +37,27 @@ body {
     margin-top: 15px; 
 }
 
-.about-img {
-    width: 200px;
-    height: 200px;
+.aboutImg {
+    width: 20em;
+    height: 15em;
 }
 
 #yummy {      
     text-align: center;
+}
+
+.anatomyImg {
+    width: 20em;
+    height: 30em;
+}
+
+
+/* Drinks Page */
+.page-title {
+    font-family: 'Sriracha', cursive;
+}
+
+/* Footer */
+.page-footer {
+    background-color: #adbf51;
 }
