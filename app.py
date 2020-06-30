@@ -55,7 +55,7 @@ def edit_drink(drink_id):
     return render_template('editDrink.html',  boba=drink_id, drinks=drink_type, teas=tea_type, top=top, ice=ice, sweet=sweet)
 
 # Update Drink in database
-@app.route('/update_drink/<drink_name>', methods=["POST"])
+@app.route('/update_drink/<drink_id>', methods=["POST"])
 def update_location(location_id):
     boba = mongo.db.boba
     boba.update({'_id': ObjectId(drink_id)},
@@ -73,7 +73,7 @@ def update_location(location_id):
 # Delete Drink From Database
 @app.route('/delete_drink/<drink_id>')
 def delete_drink(drink_id):
-    mongo.db.tasks.remove({'_id': ObjectId(drink_id)})
+    mongo.db.boba.remove({'_id': ObjectId(drink_id)})
     return redirect(url_for('get_drink'))
 
 if __name__ == '__main__':
