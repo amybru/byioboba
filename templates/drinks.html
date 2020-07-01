@@ -42,9 +42,9 @@
 <div>
     <ul class="collection">
     <li class="collection-item avatar">
-      <img src="{{ boba.drink_Image }}" alt="{{ boba.drink_name }}" class="circle">
+      <img src="{{ boba.drink_image }}" alt="{{ boba.drink_name }}" class="circle">
       <span class="title">{{boba.drink_name}}</span>
-      <a href="{{ url_for('drink', drink_name=item_value['_id'] ) }}"><h5 class="card-title">{{ item_value["drink_name"] }}</h5></a>
+      <a href="{{ url_for('get_drink', drink_name=item_value['_id'] ) }}"><h5 class="card-title">{{ item_value["drink_name"] }}</h5></a>
       <p>First Line <br>
          Second Line
       </p>

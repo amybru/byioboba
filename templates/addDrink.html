@@ -3,18 +3,19 @@
 {% block content %}
 <!--If the user is logged in, they can add a drink to the database-->
 <div class="container">
+
   <div class="row">
   <div class="col s12">
   <h2>Welcome! Please create your favorite Boba tea drink to share with others!</h2>
     </div>
     </div>
-    <form action="{{ url_for('insert_drink') }}" method="POST">
+    <form action="{{url_for('insert_drink')}}" method="POST">
       
       <!--Drink Name-->
     <div class="row">
         <div class="input-field col s12 m6">
-          <input placeholder="Drink Name" name="drinkName" id="drink-name" type="text" class="validate" required>
-          <label for="drinkName">Drink Name</label>
+          <input placeholder="Drink Name" name="drink_name" id="drink_name" type="text" class="validate" required>
+          <label for="drink_name">Drink Name</label>
         </div>
     </div>
       <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
@@ -43,7 +44,7 @@
      <!--Caffeine? True or False Value-->
         <div class="switch col s12 m4" name="decaf">
             <label>
-            <input type="checkbox" id="is_decaf" name="is_decaf">
+            <input type="checkbox" id="decaf" name="decaf">
             <span class="lever"></span>
                 Decaf?
             </label>
@@ -51,7 +52,7 @@
     </div>
      <!--Topping Type-->
      <div class="row">
-        <div name="topping col s12">
+        <div name="top" class="col s12">
             <h4>Choose a topping</h4>
             <p>
                 <label>
@@ -75,52 +76,52 @@
     </div>
      <!--Sweetness Level-->
      <div class="row">
-        <div name="sweet_level col s12 m6">
+        <div name="sweet" class="col s12 m6">
         <h4>Choose your sweetness level</h4>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group1" />
+                    <input class="sweet" type="radio" name="sweet" />
                     <span>0%</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group1"/>
+                    <input class="sweet" type="radio" name="sweet"/>
                     <span>50%</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group1"/>
+                    <input class="sweet" type="radio" name="sweet"/>
                     <span>75%</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group1"/>
+                    <input class="sweet" type="radio" name="sweet"/>
                     <span>100%</span>
                 </label>
             </p>
         </div>
 
     <!--Ice Level-->        
-        <div name="ice col s12 m6">
+        <div name="ice" class="col s12 m6">
             <h4>Choose your ice level</h4>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group2"/>
+                    <input class="sweet" type="radio" name="ice"/>
                     <span>0%</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group2"/>
+                    <input class="sweet" type="radio" name="ice"/>
                     <span>50%</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input class="sweet" type="radio" name="group2"/>
+                    <input class="sweet" type="radio" name="ice"/>
                     <span>100%</span>
                 </label>
             </p>
@@ -136,7 +137,7 @@
       <!--Submit Button-->
       <div class="row">
         <div class="col-12 center-align">
-         <a href="{{url_for('insert_drink', drink_id=boba._id)}}" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Add Bubble Tea</a>
+            <input type="submit" value="Add Bubble Tea">
         </div>
     </div>
     </form>

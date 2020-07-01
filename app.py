@@ -33,14 +33,14 @@ def get_drink():
 # Add Drink form
 @app.route("/add_drink")
 def add_drink():
-    return render_template('addDrink.html',
-    boba=mongo.db.boba.find())
+    return render_template('addDrink.html', boba=mongo.db.boba.find(), drinks=mongo.db.drinks.find(), teas=mongo.db.teas.find())
 
 # Function to post user data to the database
 @app.route('/insert_drink', methods=['POST'])
 def insert_drink():
     boba = mongo.db.boba
     boba.insert_one(request.form.to_dict())
+    print(request.form.to_dict())
     return redirect(url_for('get_drink'))
 
 # Edit Drink Form
