@@ -23,8 +23,8 @@
         <div class="input-field col s12 m4">
             <select class="icons">
                  <option value="" disabled selected>Choose a Drink Type</option>
-                 {% for drink_type in drinks %}
-                 <option value="{{drink_type.drinks}}">{{drink_type.drinks}}</option>
+                 {% for drink in drinks %}
+                 <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
                  {% endfor %}
             </select>
             <label>Drink Type</label>
@@ -34,8 +34,8 @@
         <div class="input-field col s12 m4">
             <select class="icons">
                 <option value="" disabled selected>Choose a Tea Type</option>
-                {% for tea_type in teas %}
-                 <option value="{{tea_type.teas}}">{{tea_type.teas}}</option>
+                {% for tea in teas %}
+                 <option value="{{tea.tea_type}}">{{tea.tea_type}}</option>
                 {% endfor %}
             </select>
             <label>Tea Type</label>
