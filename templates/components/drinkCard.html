@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
 <div id="drinkResponse" class="row view-drink">
+{% for drink in boba %}
     <div class="col s12 m6 center">
-        <h3 class="bold-headers">{{boba.drink_name}}</h3>
-        <img id="view-image" src="{{boba.drink_image}}" alt="{{boba.drink_name}}"
-            onerror="this.onerror=null;this.src='/static/images/noImage.jpg';">
-        
+        <h3 class="bold-headers">{{ boba.drink_name }}</h3>
     <div class="col s12 m6">
         <h4 class="bold-headers">Drink Type</h4>
         <ul class="ingredients-list">
             <li>
                 <p>Drink Type:</p>
-                <h5 class="drinkType">{{boba.drink_type}}</h5>
+                <h5 class="drinkType">{{ boba.drink_type }}</h5>
             </li>
             <li>
                 <p>Tea Type:</p>
-                <h5 class="teaType">{{boba.tea_type}}</h5>
+                <h5 class="teaType">{{ boba.tea_type }}</h5>
             </li>
             <li>
                 <p>Is this drink Decaf?</p>
@@ -27,20 +25,20 @@
             </li>
             <li>
                 <p>Toppings:</p>
-                <h5 class="topping">{{boba.top}}</h5>
+                <h5 class="topping">{{ boba.top }}</h5>
             </li>
             <li>
                 <p>Sweetness Level:</p>
-                <h5 class="sweet">{{boba.sweet_level}}</h5>
+                <h5 class="sweet">{{ boba.sweet }}</h5>
             </li>
             <li>
                 <p>Ice Level:</p>
-                <h5 class="drinkType">{{boba.ice}}</h5>
+                <h5 class="ice">{{ boba.ice }}</h5>
             </li>
         </ul>
     </div>
     <div class="col-12 center-align">
-         <a href="{{url_for('edit_drink', drink_id=boba._id)}}" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Edit Bubble Tea</a>
+         <a href="{{url_for('edit_drink', boba_id=boba._id)}}" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Edit Bubble Tea</a>
          <a href="#modal1" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Delete Bubble Tea</a>
     </div>
     <div class="col-6">
@@ -49,28 +47,18 @@
         </a>
     </div>
 </div>
-
+ 
 <!-- Modal for delete-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{drink.name}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this drink?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ooops- take me back!</button>
-                    <a id="delete_location" cclass="modal-close waves-effect waves-green btn-flat" href="{{url_for('delete_drink', drink_id=boba._id)}}" role="button">Delete this Alt_location</a>
-                    
-                </div>
-            </div>
-        </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>{{boba.drink_name}}</h4>
+      <p>Are you sure you want to delete this drink?</p>
     </div>
-
-{% endif %}
+    <div class="modal-footer">
+       <button type="button" class="btn waves-effect waves-green btn-flat" >Ooops- take me back!</button>
+       <a id="delete_location" cclass="modal-close waves-effect waves-green btn-flat" href="{{url_for('delete_drink', boba_id=boba._id)}}" role="button">Delete this Drink</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}

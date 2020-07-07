@@ -24,18 +24,27 @@ def home():
     return render_template("index.html")
 
 # Get Drinks: View all drinks in database with the option to filter
-@app.route('/get_drink', methods=['GET', 'POST'])
+@app.route('/get_drink')
 def get_drink():
     return render_template('drinks.html', boba=mongo.db.boba.find())
 
 # Function to filter available drinks
+
+# Page to view one drink from the database
+@app.route('/see_one/<boba_id>')
+def see_one(boba_id):
+    boba = mongo.db.boba.find_one({"_id": ObjectId(boba_id)})
+    return render_template('components/drinkCard.html', boba=boba)
 
 # Add Drink form
 @app.route("/add_drink")
 def add_drink():
     drinks = mongo.db.drinks.find()
     teas = mongo.db.teas.find()
-    return render_template('addDrink.html', boba=mongo.db.boba.find(), drinks=drinks, teas=teas)
+    toppings = mongo.db.toppings.find()
+    sweet = mongo.db.sweet.find()
+    ice = mongo.db.ice.find()
+    return render_template('addDrink.html', boba=mongo.db.boba.find(), drinks=drinks, teas=teas, toppings=toppings, sweet=sweet, ice=ice)
 
 # Function to post user data to the database
 @app.route('/insert_drink', methods=['POST'])
@@ -45,21 +54,21 @@ def insert_drink():
     return redirect(url_for('get_drink'))
 
 # Edit Drink Form
-@app.route('/edit_drink/<drink_id>', methods=["POST"])
-def edit_drink(drink_id):
-    boba = mongo.db.boba.find_one({"_id": ObjectId(drink_id)})
-    drink_type = mongo.db.drinks.find()
-    tea_type = mongo.db.teas.find()
-    top = mongo.db.top.find()
-    ice = mongo.db.ice.find()
-    sweet = mongo.db.sweet.find()
-    return render_template('editDrink.html',  boba=drink_id, drinks=drink_type, teas=tea_type, top=top, ice=ice, sweet=sweet)
+@app.route('/edit_drink/<boba_id>')
+def edit_drink(boba_id):
+    boba = mongo.db.boba.find_one({"_id": ObjectId(boba_id)})
+    drink_type = mongo.db.boba.find()
+    tea_type = mongo.db.boba.find()
+    top = mongo.db.boba.find()
+    ice = mongo.db.boba.find()
+    sweet = mongo.db.boba.find()
+    return render_template('editDrink.html',  boba=boba, drinks=drink_type, teas=tea_type, top=top, ice=ice, sweet=sweet)
 
 # Update Drink in database
-@app.route('/update_drink/<drink_id>', methods=["POST"])
+@app.route('/update_drink/<boba_id>', methods=["POST"])
 def update_location(location_id):
     boba = mongo.db.boba
-    boba.update({'_id': ObjectId(drink_id)},
+    boba.update({'_id': ObjectId(boba_id)},
         {
             'drink_name': request.form.get('drink_name'),
             'drink_type': request.form.get('drink_type'),
@@ -72,7 +81,7 @@ def update_location(location_id):
     return redirect(url_for('get_drink'))
 
 # Delete Drink From Database
-@app.route('/delete_drink/<drink_id>')
+@app.route('/delete_drink/<boba_id>')
 def delete_drink(drink_id):
     mongo.db.boba.remove({'_id': ObjectId(drink_id)})
     return redirect(url_for('get_drink'))
