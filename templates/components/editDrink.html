@@ -8,7 +8,7 @@
   <h2>Would you like to edit this drink?</h2>
     </div>
     </div>
-    <form action="{{ url_for('update_drink', drink_id=drink._id) }}" method="POST">
+    <form action="{{ url_for('update_drink', boba_id=boba._id) }}" method="POST">
       
       <!--Drink Name-->
     <div class="row">
@@ -22,7 +22,7 @@
         <div class="input-field col s12 m4">
             <select class="icons">
                  <option value="" disabled selected>Choose a Drink Type</option>
-                 {% for drink_type in drinks %}
+                 {% for drink in drinks %}
                     {% if drinks.drink_type == boba.drink_type %}
                  <option value="{{drink_type.drinks}}" selected >{{drink_type.drinks}}</option>
                     {% else %}
@@ -55,7 +55,7 @@
             <input type="checkbox" id="is_decaf" name="is_decaf" checked>
                 {% else %}
              <input type="checkbox" name="is_decaf">
-                {% endif }
+                {% endif %}
             <span class="lever"></span>
                 Decaf?
             </label>
@@ -65,114 +65,78 @@
      <div class="row">
         <div name="topping col s12">
             <h4>Choose a topping</h4>
-            <p>
-                <label>
-                    <input type="checkbox" />
-                    <span>Tapioca Pearls</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" />
-                    <span>Jellies</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" />
-                    <span>Popping Boba</span>
-                </label>
-            </p>
+            {% for top in toppings %}
+                {% if toppings.top == boba.top %}
+                 <p>
+                    <label>
+                        <input type="checkbox" value="{{top.toppings}}" checked/>
+                        <span>{{top.toppings}}</span>
+                    </label>
+                </p>
+                    {% else %}
+                  <p>
+                    <label>
+                        <input type="checkbox" value="{{top.toppings}}"/>
+                        <span>{{top.toppings}}</span>
+                    </label>
+                </p>
+                    {% endif %}
+                 {% endfor %}
         </div>
     </div>
      <!--Sweetness Level-->
      <div class="row">
         <div name="sweet_level col s12 m6">
         <h4>Choose your sweetness level</h4>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>0%</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>50%</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>75%</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>100%</span>
-                </label>
-            </p>
+            {% for s in sweet %}
+                {% if sweet.sweet == boba.sweet %}
+                 <p>
+                    <label>
+                        <input type="checkbox" value="{{sweet.sweet}}" checked/>
+                        <span>{{sweet.sweet}}</span>
+                    </label>
+                </p>
+                    {% else %}
+                  <p>
+                    <label>
+                        <input type="checkbox" value="{{sweet.sweet}}"/>
+                        <span>{{sweet.sweet}}</span>
+                    </label>
+                </p>
+                    {% endif %}
+                 {% endfor %}
         </div>
 
     <!--Ice Level-->        
         <div name="ice col s12 m6">
             <h4>Choose your ice level</h4>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>0%</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>50%</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input name="sweet" type="radio" />
-                    <span>100%</span>
-                </label>
-            </p>
+             {% for i in ice %}
+                {% if ice.ice == boba.ice %}
+                 <p>
+                    <label>
+                        <input type="checkbox" value="{{ice.ice}}" checked/>
+                        <span>{{ice.ice}}</span>
+                    </label>
+                </p>
+                    {% else %}
+                  <p>
+                    <label>
+                        <input type="checkbox" value="{{ice.ice}}"/>
+                        <span>{{ice.ice}}</span>
+                    </label>
+                </p>
+                    {% endif %}
+                 {% endfor %}
         </div>
     </div>
-     <!--Add Picture, optional-->
-     <div class="row">
-        <div class="input-field col s12">
-          <label for="addDrinkImage">Drink Picture</label>
-          <input type="file" class="form-control-file" id="addDrinkImage">
-        </div>
-     </div>
       <!--Submit Button-->
       <div class="row">
         <div class="col-12 center-align">
-         <a href="{{url_for('update_drink', drink_id=boba._id)}}" class="waves-effect waves-light btn"><i class="material-icons right">add</i>Edit Bubble Tea</a>
-          <a href="#modal1 class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Delete Bubble Tea</a>
+        <input type="submit" value="Add Bubble Tea">
+          <a href="#modal1" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Delete Bubble Tea</a>
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{drink.name}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Are you sure you want to delete this drink?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ooops- take me back!</button>
-                    <a id="delete_location" cclass="modal-close waves-effect waves-green btn-flat" href="{{url_for('delete_drink', drink_id=boba._id)}}" role="button">Delete this Alt_location</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     
     </form>
   </div>

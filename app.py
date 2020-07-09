@@ -57,33 +57,34 @@ def insert_drink():
 @app.route('/edit_drink/<boba_id>')
 def edit_drink(boba_id):
     boba = mongo.db.boba.find_one({"_id": ObjectId(boba_id)})
-    drink_type = mongo.db.boba.find()
-    tea_type = mongo.db.boba.find()
-    top = mongo.db.boba.find()
-    ice = mongo.db.boba.find()
-    sweet = mongo.db.boba.find()
-    return render_template('editDrink.html',  boba=boba, drinks=drink_type, teas=tea_type, top=top, ice=ice, sweet=sweet)
+    drinks = mongo.db.drinks.find()
+    teas = mongo.db.teas.find()
+    top = mongo.db.toppings.find()
+    decaf = mongo.db.decaf.find()
+    ice = mongo.db.ice.find()
+    sweet = mongo.db.sweet.find()
+    return render_template('components/editDrink.html',  boba=boba, drinks=drinks, teas=teas, top=top, decaf=decaf, ice=ice, sweet=sweet)
 
 # Update Drink in database
 @app.route('/update_drink/<boba_id>', methods=["POST"])
-def update_location(location_id):
+def update_drink(boba_id):
     boba = mongo.db.boba
     boba.update({'_id': ObjectId(boba_id)},
         {
             'drink_name': request.form.get('drink_name'),
             'drink_type': request.form.get('drink_type'),
             'tea_type': request.form.get('tea_type'),
-            'decaf': request.form.get('caffeine'),
+            'decaf': request.form.get('decaf'),
             'top': request.form.get('topping'),
-            'sweet': request.form.get('sweet_level'),
+            'sweet': request.form.get('sweet'),
             'ice': request.form.get('ice')
         })
     return redirect(url_for('get_drink'))
 
 # Delete Drink From Database
 @app.route('/delete_drink/<boba_id>')
-def delete_drink(drink_id):
-    mongo.db.boba.remove({'_id': ObjectId(drink_id)})
+def delete_drink(boba_id):
+    mongo.db.boba.remove({'_id': ObjectId(boba_id)})
     return redirect(url_for('get_drink'))
 
 if __name__ == '__main__':
