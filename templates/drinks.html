@@ -7,49 +7,21 @@
       <h1 class="page-title">Bubble Teas</h1>
    </div>
 </div>
-<!--Search by filtering drink options-->
-<div class="row">
-<form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
-   <div class="input-field col s12 m6">
-      <select multiple>
-         <option value="" disabled selected>Filter</option>
-         <option value="1">Drink Type</option>
-         <option value="2">Tea Type</option>
-         <option value="3">Toppings</option>
-      </select>
-      <!--How to use our filter instructions-->
-      <label>Filter By One Category</label>
-   <!--Submit Button-->
-   <div class="row submit-button-wrapper">
-      <div class="col s6 m3">
-         <button id="filter_btn" class="btn" type="submit" aria-label="Filter button">
-         <span class="hide-on-small-and-down">Filter</span>
-         <i class="material-icons right">filter_list</i>
-         </button>
-      </div>
-      <!--Reset Button-->
-      <div class="col s6 m3">
-         <a class="btn" href="{{ url_for('get_drink') }}" aria-label="Reset page button">
-         <span class="hide-on-small-and-down">Reset</span>
-         <i class="material-icons right">undo</i>
-         </a>         
-        </div>
-      </div>
-   </div>
-</form>
-</div>
-{% for drink in drinks %}
-<div>
-    <ul class="collection">
+
+<div class="row center-align">
+   <!--WITHOUT SEARCH-->
+   {% for boba in boba %}
+   <div>
+    <ul class="collection col s12 m6 l4 hoverable">
     <li class="collection-item avatar">
-      <img src="{{ boba.drink_image }}" alt="{{ boba.drink_name }}" class="circle">
-      <span class="title">{{boba.drink_name}}</span>
-      <a href="{{ url_for('get_drink', drink_name=item_value['_id'] ) }}"><h5 class="card-title">{{ item_value["drink_name"] }}</h5></a>
-      <p>First Line <br>
-         Second Line
+      <img src="static/img/logo.jpg" alt="Boba" class="circle">
+      <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}"><h5 class="card-title">{{ boba.drink_name }}</h5></a>
+      <p>{{ boba.drink_type }} <br>
+         {{ boba.tea_type }} <br>
+         {{ boba.top }}
       </p>
     </li>
   </ul>
 </div>
-{% endfor %}
+  {% endfor %}
 {% endblock %}
