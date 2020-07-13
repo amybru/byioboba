@@ -28,8 +28,6 @@ def home():
 def get_drink():
     return render_template('drinks.html', boba=mongo.db.boba.find())
 
-# Function to filter available drinks
-
 # Page to view one drink from the database
 @app.route('/see_one/<boba_id>')
 def see_one(boba_id):
@@ -57,12 +55,19 @@ def insert_drink():
 @app.route('/edit_drink/<boba_id>')
 def edit_drink(boba_id):
     boba = mongo.db.boba.find_one({"_id": ObjectId(boba_id)})
-    drinks = mongo.db.drinks.find()
-    teas = mongo.db.teas.find()
-    top = mongo.db.toppings.find()
-    decaf = mongo.db.decaf.find()
-    ice = mongo.db.ice.find()
-    sweet = mongo.db.sweet.find()
+    drinks = list(mongo.db.drinks.find())
+    teas = list(mongo.db.teas.find())
+    top = list(mongo.db.toppings.find())
+    decaf = list(mongo.db.decaf.find())
+    ice = list(mongo.db.ice.find())
+    sweet = list(mongo.db.sweet.find())
+    print(f"boba: {boba}")
+    print(f"Drinks: {drinks}")
+    print(f"Teas: {teas}")
+    print(f"Top: {top}")
+    print(f"decaf: {decaf}")
+    print(f"Ice: {ice}")
+    print(f"Sweet: {sweet}")
     return render_template('components/editDrink.html',  boba=boba, drinks=drinks, teas=teas, top=top, decaf=decaf, ice=ice, sweet=sweet)
 
 # Update Drink in database
