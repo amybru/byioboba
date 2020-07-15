@@ -5,16 +5,14 @@
 <div class="home-jumbotron">
   <h1 class="display-4">BYOBoba</h1>
   <p class="lead">Welcome to BYOBoba! Find or add your favorite Boba Tea Drink.</p>
-  <p class="lead">
+  <div class="lead">
     <a class="button btn-large waves-effect waves-light" href="{{url_for('get_drink')}}" role="button">Browse Drinks</a>
-  </p>
+  </div>
 </div>
+<div class="container">
 <div class="about row">
-    <div class="col s5 about-img">
-        <img src="static/img/tapioca.jpg" alt="Tapioca Pearls" class="aboutImg">
-    </div>
-    <div class="col s7 about-text">
-    <h4>What is Boba Tea?</h4>
+    <div class="col s12 m7 about-text">
+    <h4 class="whatis">What is Boba Tea?</h4>
     <p>Before we go any further, there is a few things you must know about Boba!</p>
     <ul>
         <li>Also called "Bubble Tea", "Pearl Tea", or "Tapioca Tea"</li>
@@ -23,27 +21,14 @@
         <li>There are many different kinds of Boba tea- sweet, milky, or fruity</li>
     </ul>
     </div>
+    <div class="col s12 m5 about-img">
+        <img src="static/img/tapioca.jpg" alt="Tapioca Pearls" class="aboutImg">
+    </div>
 </div>
-<div class="divider"></div>
-<div class="anatomy row">
-    <div class="anatomy-text col s7">
-    <h4>Anatomy of Bubble tea</h4>
-    <ul>
-        <li>Wide Straw</li>
-        <li>Fun Lid</li>
-        <li>Ice</li>
-        <li>Milk Tea</li>
-        <li>Tapioca Pearls</li>
-        <li>Cup</li>
-    </ul>
-    </div>
-    <div class="anatomy-image col s5">
-        <img src="static/img/anatomy.jpg" alt="Boba Tea Anatomy" class="anatomyImg">
-    </div>
 </div>
 <div class="divider"></div>
 <div class="card-panel hoverable" id="yummy">
-    <p class="card-title">Everything is better with Boba in my belly!</p>
-    <a class="button btn-small waves-effect waves-light"  href="#" role="button">Log in to add your favorite drink!</a>
+    <p class="card-title yummy">Everything is better with Boba in my belly!</p>
+    <a class="button btn-small waves-effect waves-light"  href="{{url_for('get_drink')}}" role="button">Add your favorite drink here!</a>
 </div>
 {% endblock %}

@@ -6,15 +6,34 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+    /* Main Button used throughout the webpage */
 .button {
     background-color: #3f6335;
+    border-radius: 28px;
+}
+
+.button:hover {
+    color: #ffffff;
+     background-color: #ff9e01;
 }
 
 /* Navbar Styling */
 .nav-wrapper {
     background-color: #adbf51;
-    color: white;
+    color: #ffffff;
 }
+
+.navbutton:hover {
+     color: #ffffff;
+     background-color: #ff9e01;
+     border-radius: 23px;
+}
+
+.brand-logo {
+    font-family: 'Sriracha', cursive;
+}
+
+    /* On Medium and small screens- side nav */
 
 
 /* Home page styles */
@@ -31,10 +50,23 @@ body {
 
 .home-jumbotron h1 {
     font-family: 'Sriracha', cursive;
+    font-size: 5em;
+}
+
+.home-jumbotron p {
+    font-size: 2em;
 }
 
 .about {
     margin-top: 15px; 
+}
+
+.about-text {
+    font-family: 'Sriracha', cursive;
+}
+
+.about-text h4 {
+    font-size: 40px;
 }
 
 .aboutImg {
@@ -46,9 +78,9 @@ body {
     text-align: center;
 }
 
-.anatomyImg {
-    width: 20em;
-    height: 30em;
+.yummy {
+    font-family: 'Sriracha', cursive;
+    font-size: 1.5em
 }
 
 
@@ -57,7 +89,24 @@ body {
     font-family: 'Sriracha', cursive;
 }
 
-/* Footer */
+
+.card-title {
+    font-family: 'Sriracha', cursive;
+    font-size: 2em;
+    color: #ff9e01;
+}
+
+
+/* Individual Drink page */
+
+
+/* Styles to apply to edit and add drink pages */ 
+
+select {
+    display: inline-block !important;
+}
+
+/* Footer- Will be seen on all pages */
 .page-footer {
     background-color: #adbf51;
 }

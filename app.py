@@ -3,9 +3,6 @@ from os import path
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from flask_wtf import FlaskForm
-from wtforms import StringField, TextField, SubmitField
-from wtforms.validators import DataRequired, Length
 
 app = Flask(__name__)
 
@@ -42,7 +39,7 @@ def add_drink():
     toppings = mongo.db.toppings.find()
     sweet = mongo.db.sweet.find()
     ice = mongo.db.ice.find()
-    return render_template('addDrink.html', boba=mongo.db.boba.find(), drinks=drinks, teas=teas, toppings=toppings, sweet=sweet, ice=ice)
+    return render_template('addDrink.html', boba=mongo.db.boba.find(), drinks=list(drinks), teas=teas, toppings=toppings, sweet=sweet, ice=ice)
 
 # Function to post user data to the database
 @app.route('/insert_drink', methods=['POST'])
@@ -61,13 +58,6 @@ def edit_drink(boba_id):
     decaf = list(mongo.db.decaf.find())
     ice = list(mongo.db.ice.find())
     sweet = list(mongo.db.sweet.find())
-    print(f"boba: {boba}")
-    print(f"Drinks: {drinks}")
-    print(f"Teas: {teas}")
-    print(f"Top: {top}")
-    print(f"decaf: {decaf}")
-    print(f"Ice: {ice}")
-    print(f"Sweet: {sweet}")
     return render_template('components/editDrink.html',  boba=boba, drinks=drinks, teas=teas, top=top, decaf=decaf, ice=ice, sweet=sweet)
 
 # Update Drink in database
@@ -80,7 +70,7 @@ def update_drink(boba_id):
             'drink_type': request.form.get('drink_type'),
             'tea_type': request.form.get('tea_type'),
             'decaf': request.form.get('decaf'),
-            'top': request.form.get('topping'),
+            'top': request.form.get('top'),
             'sweet': request.form.get('sweet'),
             'ice': request.form.get('ice')
         })
