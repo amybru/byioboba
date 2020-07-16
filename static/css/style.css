@@ -89,13 +89,32 @@ body {
     font-family: 'Sriracha', cursive;
 }
 
-
-.card-title {
-    font-family: 'Sriracha', cursive;
-    font-size: 2em;
-    color: #ff9e01;
+.collection-circle {
+    border-radius: 40px;
+    background-color: #ffffff;
+    color: #3f6335;
 }
 
+.collection-circle:hover {
+    background-color: #3f6335;
+    color: #ffffff;
+
+}
+
+.drink-card-title {
+    font-family: 'Sriracha', cursive;
+    font-size: 2em;
+    color: #adbf51;
+}
+
+.drink-card-title:hover {
+    color:#ffffff;
+}
+
+.collection-img {
+    width: 100px;
+    height: 115px;
+}
 
 /* Individual Drink page */
 

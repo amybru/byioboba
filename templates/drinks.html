@@ -8,14 +8,14 @@
    </div>
 </div>
 
-<div class="row center-align">
+<div class="row center-align collections-row">
    <!--WITHOUT SEARCH-->
    {% for boba in boba %}
    <div>
-    <ul class="collection col s12 m6 l4 hoverable">
-    <li class="collection-item avatar">
-      <img src="static/img/logo.jpg" alt="Boba" class="circle">
-      <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}"><h5 class="card-title">{{ boba.drink_name }}</h5></a>
+    <ul class="collection col s12 m6 l4">
+    <li class="collection-item collection-circle hoverable avatar">
+      <img src="static/img/logo.jpg" alt="Boba" class="circle collection-img">
+      <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}"><h5 class="card-title drink-card-title">{{ boba.drink_name }}</h5></a>
       <p>{{ boba.drink_type }} <br>
          {{ boba.tea_type }} <br>
          {{ boba.top }}
