@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Ubuntu', sans-serif;
+    color: #322916;
 }
 
     /* Main Button used throughout the webpage */
@@ -117,12 +118,95 @@ body {
 }
 
 /* Individual Drink page */
+.drink-card-page {
+    margin: 17px;
+}
+
+.drink-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 13em;
+}
+
+.drink-name {
+    font-family: 'Sriracha', cursive;
+    font-size: 5em;
+    color: #3f6335;
+    text-align: center;
+}
+
+.data {
+    font-family: 'Sriracha', cursive;
+    font-size: 2em;
+}
+
+.divider-drink {
+    height: 8px;
+    background-color: #9a816a
+}
+
+
+#edit-button {
+    margin: 5px;
+}
+
+
+#back-button {
+    margin: 5px;
+}
 
 
 /* Styles to apply to edit and add drink pages */ 
+.drink-form {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    font-family: 'Sriracha', cursive;
+    color: #ffffff;
+}
+
+.drinkName {
+    color: #ffffff;
+}
+
+input {
+    color: #3f6335;
+    font-family: 'Sriracha', cursive;
+    border-bottom: 3px solid #ff9e01;
+}
 
 select {
     display: inline-block !important;
+    background-color: transparent;
+    font-family: 'Sriracha', cursive;
+    color: #3f6335;
+}
+
+label {
+    font-size: .8rem;
+    color: #ffffff;
+}
+
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #ff9e01;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #ff9e01;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+    background-color: #ff9e01;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+    border: 2px solid #ff9e01;
+}
+
+#edit {
+    color: white;
+    font-family: 'Sriracha', cursive;
 }
 
 /* Footer- Will be seen on all pages */

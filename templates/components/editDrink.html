@@ -2,10 +2,10 @@
 {% block title %}Edit Drink{% endblock %}
 {% block content %}
 <!--If the user is logged in, they can add a drink to the database-->
-<div class="container">
+<div class="container drink-form">
   <div class="row">
   <div class="col s12">
-  <h2>Would you like to edit this drink?</h2>
+  <h2 class="center">Would you like to edit this drink?</h2>
     </div>
     </div>
     <form action="{{ url_for('update_drink', boba_id=boba._id) }}" method="POST">
@@ -13,50 +13,48 @@
       <!--Drink Name-->
     <div class="row">
         <div class="input-field col s12 m6">
+        <h4 class="drinkName">Drink Name</h4>
           <input placeholder="Drink Name" value="{{boba.drink_name}}" name="drink_name" id="drink-name" type="text" class="validate" required>
-          <label for="drinkName">Drink Name</label>
         </div>
     </div>
       <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
       <div class="row">
         <div class="input-field col s12 m4">
-            <select>
-                 <option title="Choose a Drink Type" value=''>&nbsp;</option>
+            <select name="drink_type">
+                 <option title="Choose a Drink Type" value="">&nbsp;</option>
                  {% for drink in drinks %}
                     {% if boba.drink_type == drink.drink_type %}
-                 <option selected >{{boba.drink_type}}</option> 
+                 <option name="drink_type" value="{{boba.drink_type}}" selected >{{boba.drink_type}}</option> 
                     {% else %}
-                  <option>{{drink.drink_type}}</option> 
+                  <option name="drink_type" value="{{drink.drink_type}}">{{drink.drink_type}}</option> 
                     {% endif %}
                  {% endfor %}
             </select>
-            <label>Drink Type</label>
         </div>
 
     <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
         <div class="input-field col s12 m4">
-            <select>
-                <option title="Choose a Tea Type" value=''>&nbsp;</option>
+            <select name="tea_type">
+                <option title="Choose a Tea Type" value="">&nbsp;</option>
                 {% for tea in teas %}
                     {% if boba.tea_type == tea.tea_type %}
-                  <option selected >{{boba.tea_type}}</option> 
+                  <option name="tea_type" value="{{boba.tea_type}}" selected >{{boba.tea_type}}</option> 
                     {% else %}
-                  <option>{{tea.tea_type}}</option> 
+                  <option name="tea_type" value="{{tea.tea_type}}">{{tea.tea_type}}</option> 
                     {% endif %}
                 {% endfor %}
             </select>
-            <label>Tea Type</label>
         </div>
 
      <!--Caffeine? True or False Value-->
         <div class="switch col s12 m4" name="decaf">
             <label>
-                {% if decaf.is_on %}
+                {% if boba.decaf == "on"  %}
             <input type="checkbox" id="decaf" name="decaf" checked>
                 {% else %}
              <input type="checkbox" name="decaf">
                 {% endif %}
-            <span class="lever"></span>
+            <span class="lever decaf-lever"></span>
                 Decaf?
             </label>
         </div>
@@ -70,14 +68,14 @@
                 {% if boba.top == topping.top %}
                  <p>
                     <label>
-                        <input type="radio" value="{{boba.top}}" checked/>
+                        <input type="radio" value="{{boba.top}}" name="top" checked/>
                         <span>{{boba.top}}</span>
                     </label>
                 </p>
                     {% else %}
                   <p>
                     <label>
-                        <input type="radio" value="{{topping.top}}"/>
+                        <input type="radio" value="{{topping.top}}" name="top"/>
                         <span>{{topping.top}}</span>
                     </label>
                 </p>
@@ -87,20 +85,20 @@
     </div>
      <!--Sweetness Level-->
      <div class="row">
-        <div name="sweet_level col s12 m6">
+        <div class="sweet_level col s12 m6">
         <h4>Choose your sweetness level</h4>
             {% for sweet in sweet %}
                 {% if boba.sweet == sweet.sweet %}
                  <p>
                     <label>
-                        <input type="radio" value="{{sweet.sweet}}" checked/>
+                        <input type="radio" value="{{sweet.sweet}}" name="sweet" checked/>
                         <span>{{boba.sweet}}</span>
                     </label>
                 </p>
                     {% else %}
                   <p>
                     <label>
-                        <input type="radio" value="{{sweet.sweet}}"/>
+                        <input type="radio" value="{{sweet.sweet}}" name="sweet"/>
                         <span>{{sweet.sweet}}</span>
                     </label>
                 </p>
@@ -109,20 +107,20 @@
         </div>
 
     <!--Ice Level-->        
-        <div name="ice col s12 m6">
+        <div class="ice col s12 m6">
             <h4>Choose your ice level</h4>
              {% for ice in ice %}
                 {% if boba.ice == ice.ice %}
                  <p>
                     <label>
-                        <input type="radio" value="{{ice.ice}}" checked/>
+                        <input type="radio" value="{{ice.ice}}" name="ice" checked/>
                         <span>{{boba.ice}}</span>
                     </label>
                 </p>
                     {% else %}
                   <p>
                     <label>
-                        <input type="radio" value="{{ice.ice}}"/>
+                        <input type="radio" value="{{ice.ice}}" name="ice"/>
                         <span>{{ice.ice}}</span>
                     </label>
                 </p>
@@ -133,12 +131,23 @@
       <!--Submit Button-->
       <div class="row">
         <div class="col-12 center-align">
-        <input type="submit" value="Edit Bubble Tea">
-          <a href="{url_for('delete_drink', boba_id=boba._id)}}" class="waves-effect waves-light btn" type="submit" name="action"><i class="material-icons right">add</i>Delete Bubble Tea</a>
+        <input type="submit" class="waves-effect waves-light btn button" id="edit" value="Edit Bubble Tea">
+          <a href="#deletemodal" class="waves-effect waves-light button btn modal-trigger"><i class="material-icons right">add</i>Delete Bubble Tea</a>
         </div>
     </div>
 
-    
+    <!-- Modal for delete-->
+  <div id="deletemodal" class="modal">
+    <div class="modal-content">
+      <h4>{{boba.drink_name}}</h4>
+      <p>Are you sure you want to delete this drink?</p>
+    </div>
+    <div class="modal-footer">
+       <button type="button" href="{{url_for('get_drink')}}" class="btn waves-effect waves-green btn-flat" >Ooops- take me back!</button>
+       <a id="delete_location" class="modal-close waves-effect waves-green btn-flat" href="{{url_for('delete_drink', boba_id=boba._id)}}" role="button">Delete this Drink</a>
+    </div>
+  </div>
+
     </form>
   </div>
 {% endblock %}
