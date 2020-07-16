@@ -113,8 +113,8 @@ body {
 }
 
 .collection-img {
-    width: 100px;
-    height: 115px;
+    width: 100px !important;
+    height: 115px !important;
 }
 
 /* Individual Drink page */
@@ -173,7 +173,6 @@ body {
 input {
     color: #3f6335;
     font-family: 'Sriracha', cursive;
-    border-bottom: 3px solid #ff9e01;
 }
 
 select {
@@ -184,7 +183,7 @@ select {
 }
 
 label {
-    font-size: .8rem;
+    font-size: 1rem;
     color: #ffffff;
 }
 
@@ -213,6 +212,8 @@ label {
     color: white;
     font-family: 'Sriracha', cursive;
 }
+
+
 /* Footer- Will be seen on all pages */
 .page-footer {
     background-color: #adbf51;
