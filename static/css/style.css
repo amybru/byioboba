@@ -35,6 +35,18 @@ body {
 }
 
     /* On Medium and small screens- side nav */
+.sidenav {
+    background: linear-gradient(to bottom, #adbf51 0%, #3f6335 100%);
+}
+
+.logo-mobile {
+    font-size: 20px !important;
+}
+
+.sidenav li>a {
+    color: #ffffff;
+    font-family: 'Sriracha', cursive;
+}
 
 
 /* Home page styles */
