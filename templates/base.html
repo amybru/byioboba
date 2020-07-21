@@ -39,7 +39,11 @@
                 </div>
             </nav>
 
+    <!--Side Nav-comes out on medium and small screens-->
                 <ul id="slide-out" class="sidenav">
+                <li>
+                <a class="brand-logo center logo-mobile" href="{{url_for('home')}}">BYOBoba</a>
+                </li>
                         <!--Browse Drinks Link-->
                         <li>
                             <a class="nav-link" href="{{url_for('get_drink')}}">
@@ -52,7 +56,6 @@
                                 <i class="material-icons">add</i>Add New Drink
                             </a>
                         </li>
-                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 </ul>
 
 <!--Main Content-->
@@ -82,7 +85,7 @@
                 var instance = new M.Sidenav(elem);
             });
             </script>
-            
+
 <!-- Javascript required by Materialize to initalize the select function on the add end edit forms --> 
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', function() {
@@ -90,6 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.FormSelect.init(elems);
 });
 </script>
+
+ <!-- Javascript required by Materialize to open the modal when the delete button is clicked, delete modal located on Edit Drink Page -->
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+    </script>
 
 </body>
 </html>
