@@ -52,36 +52,36 @@ There are some differences between my wireframes and my final website. This was 
 
 ### Data Architecture
 Before building my project, I discussed what kind of data structure would be good for this project with the tutors. They all gave some valuable advice. Below are what the collections look like from the database.
-In the [Boba Collection](.wireframes/database/boba-collection.png) , data is collected from the add drink form and stored in the boba collection. 
+In the [Boba Collection](/wireframes/database/boba-collection.png) , data is collected from the add drink form and stored in the boba collection. 
 The following collections contain predetermined data to populate the fields in the forms and provide options for the user to choose from.
-[Drinks Collection](.wireframes/database/drink-collection.png)
-[Teas Collection](.wireframes/database/teas-collection.png)
-[Decaf Collection](.wireframes/database/decaf-collection.png)
-[Toppings Collection](.wireframes/database/toppings-collection.png)
-[Ice Collection](.wireframes/database/ice-collection.png)
-[Sweet Collection](.wireframes/database/sweet-collection.png)
+[Drinks Collection](/wireframes/database/drink-collection.png)
+[Teas Collection](/wireframes/database/teas-collection.png)
+[Decaf Collection](/wireframes/database/decaf-collection.png)
+[Toppings Collection](/wireframes/database/toppings-collection.png)
+[Ice Collection](/wireframes/database/ice-collection.png)
+[Sweet Collection](/wireframes/database/sweet-collection.png)
 
 # Features
 All of the CRUD (Create, Read, Update and Delete) operations have been fully deployed in the app.
 
 ### Existing Features
-Navigation bar
+* Navigation bar
 All pages feature a navigation bar at the top of the page to make each CRUD function accessible.
 The business name, BYOBoba is located in the middle of the bar and acts as a button to return to the home page.
 On small and medium screens, the navbar reduces to show just the business name and a collapsable button.
 On large screens, the user will see a link on the left side named "Browse Drinks". Clicking on this link will take the user to the page to view all drinks currently in the database.
 On the right side, there is a button with a plus sign, referring to the "Add" function of this website. This will take the user directly to the add drink form.
 
-View all drinks
+* View all drinks
 This page features all of the user entered data in the database. A rounded shape will give us one entry that we can click on to view more information on this specific drink. 
 Clicking on it will give us the option to edit the drink or to view all ingredients in this drink.
 
-Add Drink & Edit Drink Forms
+* Add Drink & Edit Drink Forms
 Two major features of the site are the add and edit functions that allow the user to interract with the site. The user must fill in each of the fields in the form to properly create or edit the drink.
 The forms are formatted in exactly the same way, the only difference being the edit drink function is populated with data already inputted to the database. 
 The form includes a textarea, two selects, one switch, and three radios.
 
-Delete drink modal
+* Delete drink modal
 Located in the edit drink page, the delete modal can be found by clicking a button that reads "Delete Bubble Tea". 
 The modal appears with a prompt that asks if the user is sure they want to delete. Clicking a confirm will call the delete function, deleting the drink from the database.
 
@@ -133,6 +133,7 @@ Git and Git Hub were used for version control.
 
 [Heroku](https://devcenter.heroku.com/)
 Used to deploy the final website
+
 Final website link:  
 
 
@@ -140,17 +141,20 @@ Final website link:
 # Testing
 ### Code Validators
 The follow validators were used to check the code developed from this project:
-HTML [Validator]
-(https://validator.w3.org/#validate_by_input}
+
+HTML [Validator](https://validator.w3.org/#validate_by_input)
+
 HTML Validator was used to validate the HTML code. However, the validator is not able to recognise the Jinja templating syntax so some errors were recorded. All code other than the jinja syntax was successfully validated.
 
-CSS [Validator]
-(https://jigsaw.w3.org/css-validator/#validate_by_input)
+CSS [Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
 CSS Validator was used to validate CSS code. The CSS successfully passed this check with no errors.
 
 ### Browser testing 
 This website was tested on multiple devices with varying screen sized and in multiple browsers. All devices and web browsers passed testing.
+
 Web Browsers
+
 - Google Chrome
 - Safari
 - Firefox
@@ -161,6 +165,8 @@ Devices
 - iPad Air
 - iPhone x
 - iPhone 11
+
+
 The primary method of testing the application was to ask several users to visit the website using these different devices and web browsers. Each user was asked to create a drink, view it, edit it, and delete it. The feedback recieved allowed me to make any necessary changes to the code or design.
 
 ### User Stories Testing
@@ -177,8 +183,11 @@ The primary method of testing the application was to ask several users to visit 
 
 # Acknowledgement
 I would like to thank and credit the following sources for their assistance and contribution to this project.
+
 - My mentor with Code Institue, Gerard McBride, for helping me to brainstorm and coaching me through this project 
+
 - The tutoring Team at Code Institute for helping me fix several bugs and understand why these errors were happening
+
 - A big thanks to my sister and the rest of my family for helping me test the site extensively, to make sure each feature worked as expected on various devices.
 
 
@@ -189,5 +198,5 @@ The images (bkgrnd.jpg, boba.jpg, and tapioca.jpg) were found on unsplash.com
 
 Cartoon-like images (logo.jpg & anatomy.jpg) were drawn by myself using the Procreate app on ipad.
 
-All fonts are from [Google Fonts] (https://fonts.google.com).
+All fonts are from [Google Fonts](https://fonts.google.com).
 
