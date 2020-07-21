@@ -39,14 +39,14 @@
                 </div>
             </nav>
 
-                <ul id="slide-out" class="sidenav slide-out">
-                        <!--Browse Drinks Link- always shown-->
+                <ul id="slide-out" class="sidenav">
+                        <!--Browse Drinks Link-->
                         <li>
                             <a class="nav-link" href="{{url_for('get_drink')}}">
                                 <i class="material-icons">search</i>Browse Drinks
                             </a>
                         </li>
-                        <!--Add New Drink- shown only when logged in-->
+                        <!--Add New Drink-->
                         <li>
                             <a class="nav-link" href="{{url_for('add_drink')}}">
                                 <i class="material-icons">add</i>Add New Drink
@@ -74,8 +74,22 @@
 <!--All scripts on the page-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script type="text/javascript" href="{{url_for('static', filename='js/navbar.js')}}"></script>
-<script type="text/javascript" href="{{url_for('static', filename='js/drinkForm.js')}}"></script>
-<script type="text/javascript" href="{{url_for('static', filename='js/modal.js')}}"></script>
+
+<!--Javascript required by Materialize to run the navbar on small and medium screens-->
+            <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+            var elem = document.querySelector('.sidenav');
+                var instance = new M.Sidenav(elem);
+            });
+            </script>
+            
+<!-- Javascript required by Materialize to initalize the select function on the add end edit forms --> 
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+});
+</script>
+
 </body>
 </html>
