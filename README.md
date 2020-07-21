@@ -52,14 +52,21 @@ There are some differences between my wireframes and my final website. This was 
 
 ### Data Architecture
 Before building my project, I discussed what kind of data structure would be good for this project with the tutors. They all gave some valuable advice. Below are what the collections look like from the database.
-In the [Boba Collection](/wireframes/database/boba-collection.png) , data is collected from the add drink form and stored in the boba collection. 
+
+* In the [Boba Collection](/wireframes/database/boba-collection.png) , data is collected from the add drink form and stored in the boba collection. 
 The following collections contain predetermined data to populate the fields in the forms and provide options for the user to choose from.
-[Drinks Collection](/wireframes/database/drink-collection.png)
-[Teas Collection](/wireframes/database/teas-collection.png)
-[Decaf Collection](/wireframes/database/decaf-collection.png)
-[Toppings Collection](/wireframes/database/toppings-collection.png)
-[Ice Collection](/wireframes/database/ice-collection.png)
-[Sweet Collection](/wireframes/database/sweet-collection.png)
+
+* [Drinks Collection](/wireframes/database/drink-collection.png)
+
+* [Teas Collection](/wireframes/database/teas-collection.png)
+
+* [Decaf Collection](/wireframes/database/decaf-collection.png)
+
+* [Toppings Collection](/wireframes/database/toppings-collection.png)
+
+* [Ice Collection](/wireframes/database/ice-collection.png)
+
+* [Sweet Collection](/wireframes/database/sweet-collection.png)
 
 # Features
 All of the CRUD (Create, Read, Update and Delete) operations have been fully deployed in the app.
