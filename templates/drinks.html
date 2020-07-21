@@ -7,39 +7,37 @@
       <h1 class="page-title">Bubble Teas</h1>
    </div>
 </div>
-
 <!--Search by filtering drink options-->
 <div class="row">
-<form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
-   <div class="input-field col s12 m6">
-      <select name="drink_type">
+   <form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
+      <div class="input-field col s12 m6">
+         <select name="drink_type">
             <option value="default" disabled>Filter</option>
             {% for drink in drinks %}
             <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
             {% endfor %}
-        </select>
-      <!--How to use our filter instructions-->
-      <label>Filter By One Category</label>
-   <!--Submit Button-->
-   <div class="row submit-button-wrapper">
-      <div class="col s6 m4">
-         <a href="{{ url_for('search_drinks') }}" id="filter_btn" class="button btn" type="submit" aria-label="Filter button">
-            <span>Filter</span>
-            <i class="material-icons right">filter_list</i>
-         </a>
+         </select>
+         <!--How to use our filter instructions-->
+         <label>Filter By One Category</label>
+         <!--Submit Button-->
+         <div class="row submit-button-wrapper">
+            <div class="col s6 m4">
+               <a href="{{ url_for('search_drinks') }}" id="filter_btn" class="button btn" type="submit" aria-label="Filter button">
+               <span>Filter</span>
+               <i class="material-icons right">filter_list</i>
+               </a>
+            </div>
+            <!--Reset Button-->
+            <div class="col s6 m4">
+               <a class="btn button" href="{{ url_for('get_drink') }}" aria-label="Reset page button">
+               <span>Reset</span>
+               <i class="material-icons right">undo</i>
+               </a>         
+            </div>
+         </div>
       </div>
-      <!--Reset Button-->
-      <div class="col s6 m4">
-         <a class="btn button" href="{{ url_for('get_drink') }}" aria-label="Reset page button">
-            <span>Reset</span>
-            <i class="material-icons right">undo</i>
-         </a>         
-        </div>
-      </div>
-   </div>
-</form>
+   </form>
 </div>
-
 <!--Card displayed for each drink in database, allowing for filters if used-->
 <div class="row center-align">
    <!--WITHOUT SEARCH-->
@@ -56,22 +54,23 @@
    {% endfor %}
    {% endif %}
 </div>
-
-
 <div class="row center-align collections-row">
    <!--WITHOUT SEARCH-->
    {% for boba in boba %}
    <div>
-    <ul class="collection col s12 m6 l4">
-    <li class="collection-item collection-circle hoverable avatar">
-      <img src="static/img/logo.jpg" alt="Boba" class="circle collection-img">
-      <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}"><h5 class="card-title drink-card-title">{{ boba.drink_name }}</h5></a>
-      <p>{{ boba.drink_type }} <br>
-         {{ boba.tea_type }} <br>
-         {{ boba.top }}
-      </p>
-    </li>
-  </ul>
+      <ul class="collection col s12 m6 l4">
+         <li class="collection-item collection-circle hoverable avatar">
+            <img src="static/img/logo.jpg" alt="Boba" class="circle collection-img">
+            <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}">
+               <h5 class="card-title drink-card-title">{{ boba.drink_name }}</h5>
+            </a>
+            <p>{{ boba.drink_type }} <br>
+               {{ boba.tea_type }} <br>
+               {{ boba.top }}
+            </p>
+         </li>
+      </ul>
+   </div>
 </div>
-  {% endfor %}
+{% endfor %}
 {% endblock %}

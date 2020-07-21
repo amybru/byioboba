@@ -3,32 +3,32 @@
 {% block content %}
 <!--Home page for the BYOBoba site-->
 <div class="home-jumbotron">
-  <h1 class="display-4">BYOBoba</h1>
-  <p class="lead">Welcome to BYOBoba! Find or add your favorite Boba Tea Drink.</p>
-  <div class="lead">
-    <a class="button btn-large waves-effect waves-light" href="{{url_for('get_drink')}}" role="button">Browse Drinks</a>
-  </div>
+   <h1 class="display-4">BYOBoba</h1>
+   <p class="lead">Welcome to BYOBoba! Find or add your favorite Boba Tea Drink.</p>
+   <div class="lead">
+      <a class="button btn-large waves-effect waves-light" href="{{url_for('get_drink')}}" role="button">Browse Drinks</a>
+   </div>
 </div>
 <div class="container">
-<div class="about row">
-    <div class="col s12 m7 about-text">
-    <h4 class="whatis">What is Boba Tea?</h4>
-    <p>Before we go any further, there is a few things you must know about Boba!</p>
-    <ul>
-        <li>Also called "Bubble Tea", "Pearl Tea", or "Tapioca Tea"</li>
-        <li>Boba tea originated in Taiwan in the 1980s</li>
-        <li>It has become one of the most popular drink desserts in Asia</li>
-        <li>There are many different kinds of Boba tea- sweet, milky, or fruity</li>
-    </ul>
-    </div>
-    <div class="col s12 m5 about-img">
-        <img src="static/img/tapioca.jpg" alt="Tapioca Pearls" class="aboutImg">
-    </div>
-</div>
+   <div class="about row">
+      <div class="col s12 m7 about-text">
+         <h4 class="whatis">What is Boba Tea?</h4>
+         <p>Before we go any further, there is a few things you must know about Boba!</p>
+         <ul>
+            <li>Also called "Bubble Tea", "Pearl Tea", or "Tapioca Tea"</li>
+            <li>Boba tea originated in Taiwan in the 1980s</li>
+            <li>It has become one of the most popular drink desserts in Asia</li>
+            <li>There are many different kinds of Boba tea- sweet, milky, or fruity</li>
+         </ul>
+      </div>
+      <div class="col s12 m5 about-img">
+         <img src="static/img/tapioca.jpg" alt="Tapioca Pearls" class="aboutImg">
+      </div>
+   </div>
 </div>
 <div class="divider"></div>
 <div class="card-panel hoverable" id="yummy">
-    <p class="card-title yummy">Everything is better with Boba in my belly!</p>
-    <a class="button btn-small waves-effect waves-light"  href="{{url_for('get_drink')}}" role="button">Add your favorite drink here!</a>
+   <p class="card-title yummy">Everything is better with Boba in my belly!</p>
+   <a class="button btn-small waves-effect waves-light"  href="{{url_for('get_drink')}}" role="button">Add your favorite drink here!</a>
 </div>
 {% endblock %}

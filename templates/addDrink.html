@@ -3,98 +3,93 @@
 {% block content %}
 <!--If the user is logged in, they can add a drink to the database-->
 <div class="container drink-form">
-  <div class="row">
-  <div class="col s12">
-  <h2 class="center">Welcome! Please create your favorite Boba tea drink to share with others!</h2>
-    </div>
-    </div>
-    <form action="{{url_for('insert_drink')}}" method="POST">
-      
+   <div class="row">
+      <div class="col s12">
+         <h2 class="center">Welcome! Please create your favorite Boba tea drink to share with others!</h2>
+      </div>
+   </div>
+   <form action="{{url_for('insert_drink')}}" method="POST">
       <!--Drink Name-->
-    <div class="row">
-        <div class="input-field col s12 m6">
-        <h4 class="drinkName">Drink Name</h4>
-          <input placeholder="Drink Name" name="drink_name" id="drink-name" type="text" class="validate" required>
-        </div>
-    </div>
+      <div class="row">
+         <div class="input-field col s12 m6">
+            <h4 class="drinkName">Drink Name</h4>
+            <input placeholder="Drink Name" name="drink_name" id="drink-name" type="text" class="validate" required>
+         </div>
+      </div>
       <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
       <div class="row">
-        <div class="input-field col s12 m4">
+         <div class="input-field col s12 m4">
             <select name="drink_type">
-                 <option value="default" selected>Choose a Drink Type</option>
-                 {% for drink in drinks %}
-                 <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
-                 {% endfor %}
+               <option value="default" selected>Choose a Drink Type</option>
+               {% for drink in drinks %}
+               <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
+               {% endfor %}
             </select>
-        </div>
-
-    <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
-        <div class="input-field col s12 m4">
+         </div>
+         <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
+         <div class="input-field col s12 m4">
             <select name="tea_type">
-                <option value="default" disabled selected>Choose a Tea Type</option>
-                {% for tea in teas %}
-                 <option value="{{tea.tea_type}}">{{tea.tea_type}}</option>
-                {% endfor %}
+               <option value="default" disabled selected>Choose a Tea Type</option>
+               {% for tea in teas %}
+               <option value="{{tea.tea_type}}">{{tea.tea_type}}</option>
+               {% endfor %}
             </select>
-        </div>
-
-     <!--Caffeine? True or False Value-->
-        <div class="switch col s12 m4" name="decaf">
+         </div>
+         <!--Caffeine? True or False Value-->
+         <div class="switch col s12 m4" name="decaf">
             <label>
             <input type="checkbox" id="decaf" name="decaf">
             <span class="lever decaf-lever"></span>
-                Decaf?
+            Decaf?
             </label>
-        </div>
-    </div>
-     <!--Topping Type-->
-     <div class="row">
-        <div name="top" class="col s12">
+         </div>
+      </div>
+      <!--Topping Type-->
+      <div class="row">
+         <div name="top" class="col s12">
             <h4>Choose a topping</h4>
             {% for topping in toppings %}
             <p>
-                <label>
-                    <input class="top" type="radio" name="top" value="{{topping.top}}"/>
-                    <span>{{topping.top}}</span>
-                </label>
+               <label>
+               <input class="top" type="radio" name="top" value="{{topping.top}}"/>
+               <span>{{topping.top}}</span>
+               </label>
             </p>
             {% endfor %}
-        </div>
-    </div>
-     <!--Sweetness Level-->
-     <div class="row">
-        <div name="sweet" class="col s12 m6">
-        <h4>Choose your sweetness level</h4>
-        {% for sweet in sweet %}
+         </div>
+      </div>
+      <!--Sweetness Level-->
+      <div class="row">
+         <div name="sweet" class="col s12 m6">
+            <h4>Choose your sweetness level</h4>
+            {% for sweet in sweet %}
             <p>
-                <label>
-                    <input class="sweet" type="radio" name="sweet" value="{{sweet.sweet}}"/>
-                    <span>{{sweet.sweet}}</span>
-                </label>
+               <label>
+               <input class="sweet" type="radio" name="sweet" value="{{sweet.sweet}}"/>
+               <span>{{sweet.sweet}}</span>
+               </label>
             </p>
-        {% endfor %}
-        </div>
-
-    <!--Ice Level-->        
-        <div name="ice" class="col s12 m6">
+            {% endfor %}
+         </div>
+         <!--Ice Level-->        
+         <div name="ice" class="col s12 m6">
             <h4>Choose your ice level</h4>
             <p>
-            {% for ice in ice %}
-                <label>
-                    <input class="sweet" type="radio" name="ice" value="{{ice.ice}}"/>
-                    <span>{{ice.ice}}</span>
-                </label>
+               {% for ice in ice %}
+               <label>
+               <input class="sweet" type="radio" name="ice" value="{{ice.ice}}"/>
+               <span>{{ice.ice}}</span>
+               </label>
             </p>
-         {% endfor %}
-        </div>
-    </div>
- 
+            {% endfor %}
+         </div>
+      </div>
       <!--Submit Button-->
       <div class="row">
-        <div class="col-12 center-align">
+         <div class="col-12 center-align">
             <input type="submit" value="Add Bubble Tea" id="add" class="waves-effect waves-light btn button">
-        </div>
-    </div>
-    </form>
-  </div>
+         </div>
+      </div>
+   </form>
+</div>
 {% endblock %}
