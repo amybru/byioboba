@@ -1,247 +1,261 @@
 /* General Styling */
+
 body {
-    background-image: url("/static/img/bkgrnd.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Ubuntu', sans-serif;
-    color: #322916;
+	background-image: url("/static/img/bkgrnd.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Ubuntu', sans-serif;
+	color: #322916;
 }
 
-    /* Main Button used throughout the webpage */
+
+/* Main Button used throughout the webpage */
+
 .button {
-    background-color: #3f6335;
-    border-radius: 28px;
+	background-color: #3f6335;
+	border-radius: 28px;
 }
 
 .button:hover {
-    color: #ffffff;
-     background-color: #ff9e01;
+	color: #ffffff;
+	background-color: #ff9e01;
 }
 
+
 /* Navbar Styling */
+
 .nav-wrapper {
-    background-color: #adbf51;
-    color: #ffffff;
+	background-color: #adbf51;
+	color: #ffffff;
 }
 
 .navbutton:hover {
-     color: #ffffff;
-     background-color: #ff9e01;
-     border-radius: 23px;
+	color: #ffffff;
+	background-color: #ff9e01;
+	border-radius: 23px;
 }
 
 .brand-logo {
-    font-family: 'Sriracha', cursive;
+	font-family: 'Sriracha', cursive;
 }
 
-    /* On Medium and small screens- side nav */
+
+/* On Medium and small screens- side nav */
+
 .sidenav {
-    background: linear-gradient(to bottom, #adbf51 0%, #3f6335 100%);
+	background: linear-gradient(to bottom, #adbf51 0%, #3f6335 100%);
 }
 
 .logo-mobile {
-    font-size: 20px !important;
+	font-size: 20px !important;
 }
 
 .sidenav li>a {
-    color: #ffffff;
-    font-family: 'Sriracha', cursive;
+	color: #ffffff;
+	font-family: 'Sriracha', cursive;
 }
 
 
 /* Home page styles */
+
 .home-jumbotron {
-    background-image: url("/static/img/boba.jpg");
-    width:100%;
-    height:35em;
-    object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding-top: 8em;
+	background-image: url("/static/img/boba.jpg");
+	width: 100%;
+	height: 35em;
+	object-fit: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-align: center;
+	padding-top: 8em;
 }
 
 .home-jumbotron h1 {
-    font-family: 'Sriracha', cursive;
-    font-size: 5em;
+	font-family: 'Sriracha', cursive;
+	font-size: 5em;
 }
 
 .home-jumbotron p {
-    font-size: 2em;
+	font-size: 2em;
 }
 
 .about {
-    margin-top: 15px; 
+	margin-top: 15px;
 }
 
 .about-text {
-    font-family: 'Sriracha', cursive;
+	font-family: 'Sriracha', cursive;
 }
 
 .about-text h4 {
-    font-size: 40px;
+	font-size: 40px;
 }
 
 .aboutImg {
-    width: 20em;
-    height: 15em;
+	width: 20em;
+	height: 15em;
 }
 
-#yummy {      
-    text-align: center;
+#yummy {
+	text-align: center;
 }
 
 .yummy {
-    font-family: 'Sriracha', cursive;
-    font-size: 1.5em
+	font-family: 'Sriracha', cursive;
+	font-size: 1.5em
 }
 
 
 /* Drinks Page */
+
 .page-title {
-    font-family: 'Sriracha', cursive;
+	font-family: 'Sriracha', cursive;
 }
 
 .collection-circle {
-    border-radius: 40px;
-    background-color: #ffffff;
-    color: #3f6335;
+	border-radius: 40px;
+	background-color: #ffffff;
+	color: #3f6335;
 }
 
 .collection-circle:hover {
-    background-color: #3f6335;
-    color: #ffffff;
-
+	background-color: #3f6335;
+	color: #ffffff;
 }
 
 .drink-card-title {
-    font-family: 'Sriracha', cursive;
-    font-size: 2em;
-    color: #adbf51;
+	font-family: 'Sriracha', cursive;
+	font-size: 2em;
+	color: #adbf51;
 }
 
 .drink-card-title:hover {
-    color:#ffffff;
+	color: #ffffff;
 }
 
 .collection-img {
-    width: 100px !important;
-    height: 115px !important;
+	width: 100px !important;
+	height: 115px !important;
 }
 
+
 /* Individual Drink page */
+
 .drink-card-page {
-    margin: 17px;
+	margin: 17px;
 }
 
 .drink-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    height: 13em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	height: 13em;
 }
 
 .drink-name {
-    font-family: 'Sriracha', cursive;
-    font-size: 5em;
-    color: #3f6335;
-    text-align: center;
+	font-family: 'Sriracha', cursive;
+	font-size: 5em;
+	color: #3f6335;
+	text-align: center;
 }
 
 .data {
-    font-family: 'Sriracha', cursive;
-    font-size: 2em;
+	font-family: 'Sriracha', cursive;
+	font-size: 2em;
 }
 
 .divider-drink {
-    height: 8px;
-    background-color: #9a816a
+	height: 8px;
+	background-color: #9a816a
 }
-
 
 #edit-button {
-    margin: 5px;
+	margin: 5px;
 }
-
 
 #back-button {
-    margin: 5px;
+	margin: 5px;
 }
 
 
-/* Styles to apply to edit and add drink pages */ 
+/* Styles to apply to edit and add drink pages */
+
 .drink-form {
-    background-color: rgba(0, 0, 0, 0.25);
-    padding: 15px;
-    font-family: 'Sriracha', cursive;
-    color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.25);
+	padding: 15px;
+	font-family: 'Sriracha', cursive;
+	color: #ffffff;
 }
 
 .drinkName {
-    color: #ffffff;
+	color: #ffffff;
 }
 
 input {
-    color: #3f6335;
-    font-family: 'Sriracha', cursive;
+	color: #3f6335;
+	font-family: 'Sriracha', cursive;
 }
 
 select {
-    background-color: transparent;
-    font-family: 'Sriracha', cursive;
-    color: #3f6335;
+	background-color: transparent;
+	font-family: 'Sriracha', cursive;
+	color: #3f6335;
 }
 
 .dropdown-content li>span {
-    color: #3f6335;
+	color: #3f6335;
 }
 
 label {
-    font-size: 1rem;
-    color: #ffffff;
+	font-size: 1rem;
+	color: #ffffff;
 }
 
 .switch label input[type=checkbox]:checked+.lever {
-    background-color: #ff9e01;
+	background-color: #ff9e01;
 }
 
 .switch label input[type=checkbox]:checked+.lever:after {
-    background-color: #ff9e01;
+	background-color: #ff9e01;
 }
 
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
-    background-color: #ff9e01;
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:after {
+	background-color: #ff9e01;
 }
 
-[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
-    border: 2px solid #ff9e01;
+[type="radio"]:checked+span:after,
+[type="radio"].with-gap:checked+span:before,
+[type="radio"].with-gap:checked+span:after {
+	border: 2px solid #ff9e01;
 }
 
 #edit {
-    color: white;
-    font-family: 'Sriracha', cursive;
+	color: white;
+	font-family: 'Sriracha', cursive;
 }
 
 #add {
-    color: white;
-    font-family: 'Sriracha', cursive;
+	color: white;
+	font-family: 'Sriracha', cursive;
 }
 
 .modal-content {
-    color: #322916;
+	color: #322916;
 }
 
 .delete-button {
-    background-color: #ff9e01; 
-    color: #ffffff;
+	background-color: #ff9e01;
+	color: #ffffff;
 }
 
 .oops-button {
-    color: #ffffff;
+	color: #ffffff;
 }
 
+
 /* Footer- Will be seen on all pages */
+
 .page-footer {
-    background-color: #adbf51;
+	background-color: #adbf51;
 }
