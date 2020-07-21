@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <!--Import CSS file-->
     <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>BYOBoba</title>
 </head>
@@ -14,15 +20,15 @@
 <!--Nav bar, will display on all pages-->
             <nav class="nav-wrapper" id="mainNav">
                 <a class="brand-logo center" href="{{url_for('home')}}">BYOBoba</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                        <!--Browse Drinks Link- always shown-->
+                        <!--Browse Drinks Link-->
                     <ul id="nav-mobile" class="left hide-on-med-and-down">
                         <li>
                             <a class="nav-link" href="{{url_for('get_drink')}}">Browse Drinks</a>
                         </li>
                     </ul>
-                    <!--Add New Drink- shown only when logged in-->
+                    <!--Add New Drink-->
                     <ul id="nav-side" class="right hide-on-med-and-down">
                         <li>
                             <a class="button navbutton btn-small waves-effect waves-light" href="{{url_for('add_drink')}}">
@@ -33,42 +39,21 @@
                 </div>
             </nav>
 
-  <ul class="sidenav" id="mobile-demo">
+                <ul id="slide-out" class="sidenav slide-out">
                         <!--Browse Drinks Link- always shown-->
                         <li>
                             <a class="nav-link" href="{{url_for('get_drink')}}">
-                                <i class="material-icons right">search</i>Browse Drinks
+                                <i class="material-icons">search</i>Browse Drinks
                             </a>
                         </li>
                         <!--Add New Drink- shown only when logged in-->
                         <li>
                             <a class="nav-link" href="{{url_for('add_drink')}}">
-                                <i class="material-icons right">add</i>Add New Drink
+                                <i class="material-icons">add</i>Add New Drink
                             </a>
                         </li>
-                        {% if session.user %}
-                        <!--if user is logged in, logout Button displayed -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="material-icons right">settings</i>Logout</a>
-                        </li>
-                        <!--if user is logged in, profile button is displayed -->
-                        <li class="nav-item">
-                            <a class="nav-link h" href="#"><i class="material-icons right">account_circle</i>{{session.user}}</a>
-                        </li>
-                        {% endif %}
-                        <!--if user is not logged in, login button is displayed-->
-                        {% if not session.user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="material-icons right">person</i>Login</a>
-                        </li>
-                        <!--if user is not logged in, register button is displayed-->
-                        <li class="nav-item">
-                            <a class="nav-link  {% if 'register' in request.path %} active {% endif %}"
-                               href="#"><i class="material-icons right">person_add</i>Register</a>
-                        </li>
-                        {% endif %} 
-  </ul>
-
+                    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                </ul>
 
 <!--Main Content-->
 <div class="main-content">
@@ -81,13 +66,13 @@
         <div class="footer-copyright">
             <div class="container">
                 <h5 class="footerTitle center">&copy;BYOBoba</h5>
-                <h5 class="grey-text text-lighten-4 center">Amy Brucker</h5>
+                <h5 class="text-lighten-4 center">Amy Brucker</h5>
             </div>
         </div>
 </footer>
 
 <!--All scripts on the page-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" href="{{url_for('static', filename='js/navbar.js')}}"></script>
 <script type="text/javascript" href="{{url_for('static', filename='js/drinkForm.js')}}"></script>
