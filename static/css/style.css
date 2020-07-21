@@ -176,9 +176,12 @@ input {
 }
 
 select {
-    display: inline-block !important;
     background-color: transparent;
     font-family: 'Sriracha', cursive;
+    color: #3f6335;
+}
+
+.dropdown-content li>span {
     color: #3f6335;
 }
 
