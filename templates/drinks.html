@@ -8,6 +8,56 @@
    </div>
 </div>
 
+<!--Search by filtering drink options-->
+<div class="row">
+<form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
+   <div class="input-field col s12 m6">
+      <select name="drink_type">
+            <option value="default" disabled>Filter</option>
+            {% for drink in drinks %}
+            <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
+            {% endfor %}
+        </select>
+      <!--How to use our filter instructions-->
+      <label>Filter By One Category</label>
+   <!--Submit Button-->
+   <div class="row submit-button-wrapper">
+      <div class="col s6 m4">
+         <a href="{{ url_for('search_drinks') }}" id="filter_btn" class="button btn" type="submit" aria-label="Filter button">
+            <span>Filter</span>
+            <i class="material-icons right">filter_list</i>
+         </a>
+      </div>
+      <!--Reset Button-->
+      <div class="col s6 m4">
+         <a class="btn button" href="{{ url_for('get_drink') }}" aria-label="Reset page button">
+            <span>Reset</span>
+            <i class="material-icons right">undo</i>
+         </a>         
+        </div>
+      </div>
+   </div>
+</form>
+</div>
+
+<!--Card displayed for each drink in database, allowing for filters if used-->
+<div class="row center-align">
+   <!--WITHOUT SEARCH-->
+   {% if search_results == "" %}
+   {% for b in boba %}
+   <!--Only display if the deleted field value is false-->
+   {% include "components/drinkCard.html" %}
+   {% endfor %}
+   <!--WITH SEARCH-->
+   {% else %}
+   {% for drink in search_results %}
+   <!--Only display recipe if the deleted field value is false-->
+   {% include "components/drinkCard.html" %}
+   {% endfor %}
+   {% endif %}
+</div>
+
+
 <div class="row center-align collections-row">
    <!--WITHOUT SEARCH-->
    {% for boba in boba %}

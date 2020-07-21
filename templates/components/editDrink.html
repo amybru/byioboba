@@ -132,7 +132,7 @@
       <div class="row">
         <div class="col-12 center-align">
         <input type="submit" class="waves-effect waves-light btn button" id="edit" value="Edit Bubble Tea">
-        <a href="#deletemodal" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+        <a href="#deletemodal" class="waves-effect waves-light btn modal-trigger delete-button">Delete</a>
         </div>
     </div>
 
@@ -143,8 +143,8 @@
       <p>Are you sure you want to delete this drink?</p>
     </div>
     <div class="modal-footer">
-       <button type="button" href="{{url_for('get_drink')}}" class="btn waves-effect waves-green btn-flat" >Ooops- take me back!</button>
-       <a id="delete_location" class="modal-close waves-effect waves-green btn-flat" href="{{url_for('delete_drink', boba_id=boba._id)}}" role="button">Delete this Drink</a>
+       <a href="{{url_for('get_drink')}}" class="modal-close waves-effect waves-green btn-flat button oops-button">Ooops- take me back!</a>
+       <a id="delete_location" class="modal-close waves-effect waves-green btn-flat delete-button" href="{{url_for('delete_drink', boba_id=boba._id)}}" role="button">Delete this Drink</a>
     </div>
   </div>
 

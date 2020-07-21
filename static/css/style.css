@@ -228,6 +228,18 @@ label {
     font-family: 'Sriracha', cursive;
 }
 
+.modal-content {
+    color: #322916;
+}
+
+.delete-button {
+    background-color: #ff9e01; 
+    color: #ffffff;
+}
+
+.oops-button {
+    color: #ffffff;
+}
 
 /* Footer- Will be seen on all pages */
 .page-footer {
