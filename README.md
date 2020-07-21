@@ -38,14 +38,14 @@ I chose to use the font Ubuntu from Google Fonts as it is a very clean and easy 
 
 ### Wireframes
 I drew my wireframes for this website using Procreate on the iPad. I have made two wireframes for each page to show considration to a mobile-first responsive app. The links to the files are below:
-![Home Page](/wireframes/wf_home.jpg "Home Page")
-![Home Page- Mobile View](/wireframes/wf_mobile_home.jpg "Home Page Mobile")
-![Drinks Page](/wireframes/wf_drinks.jpg "View all Drinks Page")
-![Drinks Page- Mobile View](/wireframes/wf_mobile_drink.jpg "View all Drinks Page- Mobile")
-![Add/Edit Drink Page](/wireframes/wf_add.jpg "Add Drinks Page")
-![Add/Edit Drink Page- Mobile View](/wireframes/wf_mobile_add.jpg "Add Drinks Page- Mobile")
-![View One Drink Page](/wireframes/wf_view.jpg "View Drink")
-![View One Drink Page- Mobile View](/wireframes/wf_mobile_view.jpg "View drink-mobile")
+* [Home Page](/wireframes/wf_home.jpg "Home Page")
+* [Home Page- Mobile View](/wireframes/wf_mobile_home.jpg "Home Page Mobile")
+* [Drinks Page](/wireframes/wf_drinks.jpg "View all Drinks Page")
+* [Drinks Page- Mobile View](/wireframes/wf_mobile_drink.jpg "View all Drinks Page- Mobile")
+* [Add/Edit Drink Page](/wireframes/wf_add.jpg "Add Drinks Page")
+* [Add/Edit Drink Page- Mobile View](/wireframes/wf_mobile_add.jpg "Add Drinks Page- Mobile")
+* [View One Drink Page](/wireframes/wf_view.jpg "View Drink")
+* [View One Drink Page- Mobile View](/wireframes/wf_mobile_view.jpg "View drink-mobile")
 
  
 There are some differences between my wireframes and my final website. This was due to visual preferences and other users who tested my website. 
@@ -184,9 +184,34 @@ The primary method of testing the application was to ask several users to visit 
 
 
 # Deployment 
+This app is currently deployed on Heroku. The code deployed is stored on the master branch of this project here on GitHub. Heroku requires the followung steps to deploy this project.
 
+1. Register/sign in for Heroku.
 
+2. Once signed in, click the "new" button on the dashbord to create a new application.
 
+3. Name the App and choose the region you are currently in.
+
+4. Create a requirements.txt file to allow Heroku to install the dependencies required by the application.
+    pip3 freeze --local > requirements.txt
+
+5. Create a procfile to tell Heroku what type of application will be deployed.
+    echo web: python run.py > Procfile
+
+6. On the deployment page of the Heroku project, choose Heroku GIT for deploying.
+
+7. In the CLI of your environment, input the following code:
+    $ heroku login
+    $ heroku git:remote -a <byoboba>
+    $ git push heroku master
+
+8. In Heroku settings, chose "Real Config Vars" to set the proper environmental variables
+* IP:    0.0.0.0
+* Port:    5000
+* MONGO_URI mongodb+srv://<username>:<password>@<cluster_name>.mongodb.net/<database>?retryWrites=true&w=majority
+* SECRET_KEY:   <your_value>
+
+9. Click the "Open App" button to view the final deployed app.
 
 # Acknowledgement
 I would like to thank and credit the following sources for their assistance and contribution to this project.
