@@ -158,7 +158,7 @@ CSS [Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 CSS Validator was used to validate CSS code. The CSS successfully passed this check with no errors.
 
 ### Browser testing 
-This website was tested on multiple devices with varying screen sized and in multiple browsers. All devices and web browsers passed testing.
+This website was tested on multiple devices with varying screen sizes and in multiple browsers. All devices and web browsers passed testing.
 
 Web Browsers
 
@@ -177,10 +177,73 @@ Devices
 The primary method of testing the application was to ask several users to visit the website using these different devices and web browsers. Each user was asked to create a drink, view it, edit it, and delete it. The feedback recieved allowed me to make any necessary changes to the code or design.
 
 ### User Stories Testing
+I have tested my user stories and documented each of the steps that each user would need to accomplish what they have stated.
+
+
+> A consumer wants to browse a variety of interesting drink combinations to make purchasing a drink at a cafe easier.
+
+1. User loads app and is directed to the home page (index.html). The user is able to see a brief introduction to what boba tea is. They are also able to see a large button to browse drinks available in the database. At the bottom of the page, the user can also see a button to add a new drink. These buttons are also available in the navbar at the top of the page.
+
+2. A user clicks on the browse drinks button in either the navbar or on the home page, taking them to a page to view all availible drinks (drinks.html).
+
+3. The user is able to scroll down the page to see previews of each drink with the top three inputs. Clicking on any of these entries will lead the user to a page (drinkCard.html) where they can see more information about the drink. 
+
+
+> A consumer wants to experiment with combinations at home and share what they enjoy with others.
+
+1. User loads app and is directed to the home page (index.html). The user is able to see a brief introduction to what boba tea is. They are also able to see a large button to browse drinks available in the database. At the bottom of the page, the user can also see a button to add a new drink. These buttons are also available in the navbar at the top of the page.
+
+2. The user clicks on the plus button in the navbar, or the add drinks button located on the bottom of the page to navigate to the add drinks form (addDrink.html).
+
+3. The user fills out each of the fields in the form, customizing it to their unique drink.
+
+4. The user clicks submit at the bottom of the page to save the data to the database.
+
+5. The user is then redirected to the main View All drinks page (drinks.html).
+
+
+> A barista in a cafe/owner of a small business wants to see what new drinks and popular ingredients their customers enjoy. 
+
+
 
 ### Manual Testing
 
 
+### Bugs
+
+Bug: Data was coming through eight times on the drinkCard.html page
+
+* Fix: I had a for loop in my code, looping through the boba collection. This collection has eight items, so every entry was repeating eight times. This for loop was removed.
+
+* Verdict: Data is displayed only once on the drink card page, as expected.
+
+
+Bug: Navbar hamburger not opening on small screens
+
+* Fix: It was found, with help from the Code Institute Tutors and the slack community that keeping the Javascript required for this project in a separate file, causes this element not to work as expected. Therefore, the Javascript was moved into a script tag in the base.html file.
+
+* Verdict: On medium and small screens, the hamburger icon is able to open and function as expected.
+
+
+Bug : Select not appearing on add drink or edit drink form
+
+* Fix: Initially a css class was applied with the class !important. Later it was found that the Materialize Javascript required, did not work in a separate javascript file. Javascript was added by means of a script tag in the base.html file. 
+
+* Verdict: The select now works as Materialize expects it to.
+
+
+Bug: Delete modal not opening when the delete button is clicked
+
+* Fix: It was found in connection with the previous two bugs, that the javascript was moved into the base.html file. However, the modal was still not opening. After comparing my code with the Materialize docs, it was found that the button to open the modal contained an outdated class. This was changed.
+
+* Verdict: Delete modal is now able to open when the button on the editDrink.html page is clicked. 
+
+
+Bug: Issues with connecting to MongoDB database
+
+* Fix: It was realized that the login for the mongodb website was used in the connection string, instead of the password for my database. These passwords were reset and environment variable was set up.
+
+* Verdict: Data is able to be posted to and retrieved from the database.
 
 
 # Deployment 
@@ -193,23 +256,31 @@ This app is currently deployed on Heroku. The code deployed is stored on the mas
 3. Name the App and choose the region you are currently in.
 
 4. Create a requirements.txt file to allow Heroku to install the dependencies required by the application.
+    ```
     pip3 freeze --local > requirements.txt
+    ```
 
 5. Create a procfile to tell Heroku what type of application will be deployed.
+    ```
     echo web: python run.py > Procfile
+    ```
 
 6. On the deployment page of the Heroku project, choose Heroku GIT for deploying.
 
 7. In the CLI of your environment, input the following code:
+    ```
     $ heroku login
     $ heroku git:remote -a <byoboba>
     $ git push heroku master
+    ```
 
 8. In Heroku settings, chose "Real Config Vars" to set the proper environmental variables
+```
 * IP:    0.0.0.0
 * Port:    5000
 * MONGO_URI mongodb+srv://<username>:<password>@<cluster_name>.mongodb.net/<database>?retryWrites=true&w=majority
 * SECRET_KEY:   <your_value>
+```
 
 9. Click the "Open App" button to view the final deployed app.
 
