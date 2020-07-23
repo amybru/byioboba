@@ -76,6 +76,7 @@ All of the CRUD (Create, Read, Update and Delete) operations have been fully dep
 
 ### Existing Features
 * Navigation bar
+
 All pages feature a navigation bar at the top of the page to make each CRUD function accessible.
 The business name, BYOBoba is located in the middle of the bar and acts as a button to return to the home page.
 On small and medium screens, the navbar reduces to show just the business name and a collapsable button.
@@ -83,17 +84,26 @@ On large screens, the user will see a link on the left side named "Browse Drinks
 On the right side, there is a button with a plus sign, referring to the "Add" function of this website. This will take the user directly to the add drink form.
 
 * View all drinks
+
 This page features all of the user entered data in the database. A rounded shape will give us one entry that we can click on to view more information on this specific drink. 
 Clicking on it will give us the option to edit the drink or to view all ingredients in this drink.
 
 * Add Drink & Edit Drink Forms
+
 Two major features of the site are the add and edit functions that allow the user to interact with the site. The user must fill in each of the fields in the form to properly create or edit the drink.
 The forms are formatted in exactly the same way, the only difference being the edit drink function is populated with data already inputted to the database. 
 The form includes a textarea, two selects, one switch, and three radios.
 
 * Delete drink modal
+
 Located in the edit drink page, the delete modal can be found by clicking a button that reads "Delete Bubble Tea". 
 The modal appears with a prompt that asks if the user is sure they want to delete. Clicking a confirm will call the delete function, deleting the drink from the database.
+
+* Search bar
+
+A search bar located on the drinks page allows for the user to search any of the drink types to find a more specific range of drinks.
+
+
 
 ### Features Left to Implement
 * In the add drink and edit drink forms, I would like for the user to be able to request new ingredients to add to the database. 
@@ -205,6 +215,14 @@ I have tested my user stories and documented each of the steps that each user wo
 
 
 > A barista in a cafe/owner of a small business wants to see what new drinks and popular ingredients their customers enjoy. 
+
+1. User loads app and is directed to the home page (index.html). The user is able to see a brief introduction to what boba tea is. They are also able to see a large button to browse drinks available in the database. At the bottom of the page, the user can also see a button to add a new drink. These buttons are also available in the navbar at the top of the page.
+
+2. User clicks on the browse drinks button in either the navbar or on the home page, taking them to a page to view all available drinks (drinks.html).
+
+3. User uses the search feature to search by drink type to see what popular pairings other users enjoy.
+
+4. The user is able to scroll down the page to see previews of each drink. Clicking on any of these entries will lead the user to a page (drinkCard.html) where they can see more information about the drink.
 
 
 
