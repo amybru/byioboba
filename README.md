@@ -1,7 +1,7 @@
 # BYOBoba
 Welcome to BYOBoba! Where you can find and create your favorite boba tea drinks! This application serves as an online recipe book to help you (the user) to try out and remember awesome drinks!
 
-I have created this app for the Data Centric Development Milestone project of Code Institute's Full Stack Software Development course. The scope of this project was to create an application using Python and MongoDB, using CRUD (create, read, update, delete) operations to allow users to interract with the website.
+I have created this app for the Data Centric Development Milestone project of Code Institute's Full Stack Software Development course. The scope of this project was to create an application using Python and MongoDB, using CRUD (create, read, update, delete) operations to allow users to interact with the website.
 
 Click here to see the deployed website:
 
@@ -17,7 +17,7 @@ https://byoboba.herokuapp.com/
 * [Content Credits](#content-credits)
 
 # UX
-This website have been designed to give any visitors easy access to all of it's content without needing to signup. Each user is able to contribute with their favorite drink recipe that the other fellow users can view. 
+This website has been designed to give any visitors easy access to all of its content without needing to signup. Each user is able to contribute with their favorite drink recipe that the other fellow users can view. 
 ### User Stories
 > As a consumer, I want to browse a variety of interesting drink combinations to make purchasing a drink at a cafe easier.
 
@@ -35,12 +35,12 @@ This website have been designed to give any visitors easy access to all of it's 
 
 ### Styling
 The design of this website follows a very minimalistic approach, only displaying valuable content to the user.
-BYOBoba uses very bright and clean colors. Inspiration was found from this photo on Unsplash of a teacup. Colors were pulled from this photo to give a colorpalate used throughout the site. As teas are usually greens, yellows, and creams, this photo seemed very appropriate. Inspiration was taken from a local tea shop called Utepia.
+BYOBoba uses very bright and clean colors. Inspiration was found from this photo on Unsplash of a teacup. Colors were pulled from this photo to give a color palate used throughout the site. As teas are usually greens, yellows, and creams, this photo seemed very appropriate. Inspiration was taken from a local tea shop called Utepia.
 I chose to use the font Ubuntu from Google Fonts as it is a very clean and easy to read font. The Siracha font was also used to add some interest to the headers and forms.
 ![Color Scheme](/wireframes/colors.jpg "colors")
 
 ### Wireframes
-I drew my wireframes for this website using Procreate on the iPad. I have made two wireframes for each page to show considration to a mobile-first responsive app. The links to the files are below:
+I drew my wireframes for this website using Procreate on the iPad. I have made two wireframes for each page to show consideration to a mobile-first responsive app. The links to the files are below:
 * [Home Page](/wireframes/wf_home.jpg "Home Page")
 * [Home Page- Mobile View](/wireframes/wf_mobile_home.jpg "Home Page Mobile")
 * [Drinks Page](/wireframes/wf_drinks.jpg "View all Drinks Page")
@@ -87,7 +87,7 @@ This page features all of the user entered data in the database. A rounded shape
 Clicking on it will give us the option to edit the drink or to view all ingredients in this drink.
 
 * Add Drink & Edit Drink Forms
-Two major features of the site are the add and edit functions that allow the user to interract with the site. The user must fill in each of the fields in the form to properly create or edit the drink.
+Two major features of the site are the add and edit functions that allow the user to interact with the site. The user must fill in each of the fields in the form to properly create or edit the drink.
 The forms are formatted in exactly the same way, the only difference being the edit drink function is populated with data already inputted to the database. 
 The form includes a textarea, two selects, one switch, and three radios.
 
@@ -98,11 +98,11 @@ The modal appears with a prompt that asks if the user is sure they want to delet
 ### Features Left to Implement
 * In the add drink and edit drink forms, I would like for the user to be able to request new ingredients to add to the database. 
 
-* I would love to implement a rating stystem so that users can let others know how good or bad they are. This will also help small buisnesses to see what kinds of combinations their customers enjoy, so as to make better recomendations and drink offerings in their stores.
+* I would love to implement a rating system so that users can let others know how good or bad they are. This will also help small businesses to see what kinds of combinations their customers enjoy, so as to make better recommendations and drink offerings in their stores.
 
 * I would also like to add authentication as it would ensure data that is added is authentic and less inclined to be spam. Also, users would not be allowed to delete drinks from the database. This is something only the administrator would be able to do. It would allow any user to view, but a user must be logged in to create or update.
 
-* I would like to add a place for the user to send us suggestions of new ingredients to add to our database to allow for more combonations to be created.
+* I would like to add a place for the user to send us suggestions of new ingredients to add to our database to allow for more combinations to be created.
 
 * It would also be interesting to develop a favorites page so the user can save their favorite drinks in a list separate from the rest of the drinks.
 
@@ -149,11 +149,11 @@ https://byoboba.herokuapp.com/
 
 # Testing
 ### Code Validators
-The follow validators were used to check the code developed from this project:
+The following validators were used to check the code developed from this project:
 
 HTML [Validator](https://validator.w3.org/#validate_by_input)
 
-HTML Validator was used to validate the HTML code. However, the validator is not able to recognise the Jinja templating syntax so some errors were recorded. All code other than the jinja syntax was successfully validated.
+HTML Validator was used to validate the HTML code. However, the validator is not able to recognize the Jinja templating syntax so some errors were recorded. All code other than the Jinja syntax was successfully validated.
 
 CSS [Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
@@ -176,7 +176,7 @@ Devices
 - iPhone 11
 
 
-The primary method of testing the application was to ask several users to visit the website using these different devices and web browsers. Each user was asked to create a drink, view it, edit it, and delete it. The feedback recieved allowed me to make any necessary changes to the code or design.
+The primary method of testing the application was to ask several users to visit the website using these different devices and web browsers. Each user was asked to create a drink, view it, edit it, and delete it. The feedback received allowed me to make any necessary changes to the code or design.
 
 ### User Stories Testing
 I have tested my user stories and documented each of the steps that each user would need to accomplish what they have stated.
@@ -186,7 +186,7 @@ I have tested my user stories and documented each of the steps that each user wo
 
 1. User loads app and is directed to the home page (index.html). The user is able to see a brief introduction to what boba tea is. They are also able to see a large button to browse drinks available in the database. At the bottom of the page, the user can also see a button to add a new drink. These buttons are also available in the navbar at the top of the page.
 
-2. A user clicks on the browse drinks button in either the navbar or on the home page, taking them to a page to view all availible drinks (drinks.html).
+2. A user clicks on the browse drinks button in either the navbar or on the home page, taking them to a page to view all available drinks (drinks.html).
 
 3. The user is able to scroll down the page to see previews of each drink with the top three inputs. Clicking on any of these entries will lead the user to a page (drinkCard.html) where they can see more information about the drink. 
 
@@ -212,11 +212,11 @@ I have tested my user stories and documented each of the steps that each user wo
  
 ###### Overall Responsiveness 
 
-* Planning: This project was required to be a responsive and mobile friendly web application. Materialize was chosen as my main framework and makes use of its components in a way that results in a clean, minimalistic view on all scren types.
+* Planning: This project was required to be a responsive and mobile friendly web application. Materialize was chosen as my main framework and makes use of its components in a way that results in a clean, minimalistic view on all screen types.
 
 * Testing: Testing was done using the Google Chrome Developer tools throughout the project. Testing using the required Materialize class modifiers made for simple and quick use. There were bugs found in connection with the sidenav, modal, and select elements. These required some Javascript. More details about this in the "Bugs" section.
 
-* Result: The website is clean, minimalistic, and responsive for all screen sized. Tests all pass as expected.
+* Result: The website is clean, minimalistic, and responsive for all screen sizes. Tests all pass as expected.
 
 
 ###### Navbar (located on all pages)
@@ -229,7 +229,7 @@ I have tested my user stories and documented each of the steps that each user wo
     3. Click on the "Browse Drinks" button, will be directed to browse drinks page (drinks.html)
     4. Click on the "BYOBoba" name, will be directed to the home page (index.html)
     5. Click on the plus sign "+" , will be taken to the add drink form (addDrink.html)
-    6. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the navbar is responsive. The navbar should show a hamburger toggler icon, which can then be clicked to open a side nav and reveal the hidden links.
+    6. Alter screen size from desktop (large) to medium devices (<992px) to check whether the navbar is responsive. The navbar should show a hamburger toggler icon, which can then be clicked to open a side nav and reveal the hidden links.
     7. Hover over Nav links (BYOBoba, Browse Drinks, Add Drink) to check the hover effect
     8. Click on the "BYOBoba" name, will be directed to the home page (index.html)
     9. Click on the "Browse Drinks" link, will be directed to browse drinks page (drinks.html)
@@ -243,8 +243,8 @@ I have tested my user stories and documented each of the steps that each user wo
 
 * Testing: The footer testing is as follows:
     1. Navigate to the bottom of each page, using a large- desktop screen
-    2. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the footer is responsive. 
-    3. Make sure the footer apears at the bottom of the page with no content below
+    2. Alter screen size from desktop (large) to medium devices (<992px) to check whether the footer is responsive. 
+    3. Make sure the footer appears at the bottom of the page with no content below
 
 * Results: All tests pass as expected, content is displayed in the middle bottom of each page
 
@@ -259,7 +259,7 @@ I have tested my user stories and documented each of the steps that each user wo
     3. Hover over "Add Your Favorite Drink Here" button to check the hover effect
     4. Click on "Add Your Favorite Drink Here" to be taken to the add drink form (addDrink.html)
     Testing was also required to make sure the pictures and content were responsive. This was done as follows:
-    1. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the pictures and text are responsive and look pleasing using the grid feature of Materialize. 
+    1. Alter screen size from desktop (large) to medium devices (<992px) to check whether the pictures and text are responsive and look pleasing using the grid feature of Materialize. 
 
 * Result: Testing passed as expected
 
@@ -280,11 +280,11 @@ I have tested my user stories and documented each of the steps that each user wo
 
 ###### Drink Card Page (drinkCard.html)
 
-* Planning: When desining this website, it was decided that there was simply too much information for each drink to be shown to the user on the drinks.html page. Thus, a new page was created so the user could view the details in a clean and minimalistic format. This page also proved to be a good place to call the edit drink function in the form of a button near the bottom of the page.
+* Planning: When designing this website, it was decided that there was simply too much information for each drink to be shown to the user on the drinks.html page. Thus, a new page was created so the user could view the details in a clean and minimalistic format. This page also proved to be a good place to call the edit drink function in the form of a button near the bottom of the page.
 
 * Testing: Testing the drink card i as follows:
     1. Navigate to drink card by clicking on an entry in the browse drinks page
-    2. Check to see data apears as expected
+    2. Check to see data appears as expected
     3. Hover over "Edit Drink" button to check the hover effect
     4. Click on "Edit Drink" button to be taken to the edit drink form
     5. Hover over "Back to search" button to check the hover effect
@@ -295,7 +295,7 @@ I have tested my user stories and documented each of the steps that each user wo
 
 ###### Add Drink/Edit Drink Pages (addDrink.html, editDrink.html)
 
-* Planning: As creating and updating are two important opperations in demonstrating CRUD functionallity, it was important to have a good form that was easy for the user to add or edit their own drinks. The forms were designed to follow the same format, with the add form being empty, and the edit form populated with previously added fields.
+* Planning: As creating and updating are two important operations in demonstrating CRUD functionality, it was important to have a good form that was easy for the user to add or edit their own drinks. The forms were designed to follow the same format, with the add form being empty, and the edit form populated with previously added fields.
 
 * Testing: Testing the Add and Edit forms are as follows:
     1. Navigate to add drink page or edit drink page
@@ -357,11 +357,11 @@ Bug: Issues with connecting to MongoDB database
 
 
 # Deployment 
-This app is currently deployed on Heroku. The code deployed is stored on the master branch of this project here on GitHub. Heroku requires the followung steps to deploy this project.
+This app is currently deployed on Heroku. The code deployed is stored on the master branch of this project here on GitHub. Heroku requires the following steps to deploy this project.
 
 1. Register/sign in for Heroku.
 
-2. Once signed in, click the "new" button on the dashbord to create a new application.
+2. Once signed in, click the "new" button on the dashboard to create a new application.
 
 3. Name the App and choose the region you are currently in.
 
@@ -397,7 +397,7 @@ This app is currently deployed on Heroku. The code deployed is stored on the mas
 # Acknowledgement
 I would like to thank and credit the following sources for their assistance and contribution to this project.
 
-- My mentor with Code Institue, Gerard McBride, for helping me to brainstorm and coaching me through this project 
+- My mentor with Code Institute, Gerard McBride, for helping me to brainstorm and coaching me through this project 
 
 - The tutoring Team at Code Institute for helping me fix several bugs and understand why these errors were happening
 
