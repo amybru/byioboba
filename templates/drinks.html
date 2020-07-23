@@ -7,24 +7,19 @@
       <h1 class="page-title">Bubble Teas</h1>
    </div>
 </div>
+    
 <!--Search by filtering drink options-->
 <div class="row">
-   <form id="filter_form" method="POST" action="{{ url_for('get_drink') }}">
+   <form id="filter_form" method="POST" action="{{ url_for('search') }}"  method="POST">
       <div class="input-field col s12 m6">
-         <select name="drink_type">
-            <option value="default" disabled>Filter</option>
-            {% for drink in drinks %}
-            <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
-            {% endfor %}
-         </select>
-         <!--How to use our filter instructions-->
-         <label>Filter By One Category</label>
+         <input type="text" id="query" name="query" minlength="3" class="validate" required>
+         <label for="query">Search Drinks</label>
          <!--Submit Button-->
          <div class="row submit-button-wrapper">
             <div class="col s6 m4">
-               <a href="{{ url_for('search_drinks') }}" id="filter_btn" class="button btn" type="submit" aria-label="Filter button">
-               <span>Filter</span>
-               <i class="material-icons right">filter_list</i>
+               <a type="submit" id="filter_btn" class="button btn" aria-label="Search button">
+               <span>Search</span>
+               <i class="material-icons right">search</i>
                </a>
             </div>
             <!--Reset Button-->
@@ -38,27 +33,12 @@
       </div>
    </form>
 </div>
-<!--Card displayed for each drink in database, allowing for filters if used-->
-<div class="row center-align">
-   <!--WITHOUT SEARCH-->
-   {% if search_results == "" %}
-   {% for b in boba %}
-   <!--Only display if the deleted field value is false-->
-   {% include "components/drinkCard.html" %}
-   {% endfor %}
-   <!--WITH SEARCH-->
-   {% else %}
-   {% for drink in search_results %}
-   <!--Only display recipe if the deleted field value is false-->
-   {% include "components/drinkCard.html" %}
-   {% endfor %}
-   {% endif %}
-</div>
+
+ <!--WITHOUT SEARCH-->
 <div class="row center-align collections-row">
-   <!--WITHOUT SEARCH-->
    {% for boba in boba %}
-   <div>
-      <ul class="collection col s12 m6 l4">
+   <div class="col s12 m6 l4">
+      <ul class="collection">
          <li class="collection-item collection-circle hoverable avatar">
             <img src="static/img/logo.jpg" alt="Boba" class="circle collection-img">
             <a class="title" href="{{ url_for('see_one', boba_id=boba._id)}}">
@@ -70,7 +50,7 @@
             </p>
          </li>
       </ul>
-   </div>
+      </div>
+       {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
