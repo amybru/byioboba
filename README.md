@@ -2,7 +2,10 @@
 Welcome to BYOBoba! Where you can find and create your favorite boba tea drinks! This application serves as an online recipe book to help you (the user) to try out and remember awesome drinks!
 
 I have created this app for the Data Centric Development Milestone project of Code Institute's Full Stack Software Development course. The scope of this project was to create an application using Python and MongoDB, using CRUD (create, read, update, delete) operations to allow users to interract with the website.
+
 Click here to see the deployed website:
+
+https://byoboba.herokuapp.com/
 
 ## Table of contents
 * [UX](#ux)
@@ -140,6 +143,8 @@ Git and Git Hub were used for version control.
 
 [Heroku](https://devcenter.heroku.com/)
 Used to deploy the final website
+
+https://byoboba.herokuapp.com/
 
 
 # Testing
