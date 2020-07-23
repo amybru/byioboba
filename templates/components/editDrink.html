@@ -19,7 +19,7 @@
       <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
       <div class="row">
          <div class="input-field col s12 m4">
-            <select name="drink_type">
+            <select name="drink_type" required>
                <option title="Choose a Drink Type" value="">&nbsp;</option>
                {% for drink in drinks %}
                {% if boba.drink_type == drink.drink_type %}
@@ -32,7 +32,7 @@
          </div>
          <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
          <div class="input-field col s12 m4">
-            <select name="tea_type">
+            <select name="tea_type" required>
                <option title="Choose a Tea Type" value="">&nbsp;</option>
                {% for tea in teas %}
                {% if boba.tea_type == tea.tea_type %}

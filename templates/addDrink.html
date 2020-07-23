@@ -19,7 +19,7 @@
       <!--Drink Type (ie. Milk Tea, Classic Tea, Slushie)-->
       <div class="row">
          <div class="input-field col s12 m4">
-            <select name="drink_type">
+            <select name="drink_type" required>
                <option value="default" selected>Choose a Drink Type</option>
                {% for drink in drinks %}
                <option value="{{ drink.drink_type }}">{{ drink.drink_type }}</option>
@@ -28,7 +28,7 @@
          </div>
          <!--Tea Type (ie. Black, Green, Oolong, Fruit)-->
          <div class="input-field col s12 m4">
-            <select name="tea_type">
+            <select name="tea_type" required>
                <option value="default" disabled selected>Choose a Tea Type</option>
                {% for tea in teas %}
                <option value="{{tea.tea_type}}">{{tea.tea_type}}</option>
