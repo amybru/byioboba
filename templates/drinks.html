@@ -10,17 +10,17 @@
     
 <!--Search by filtering drink options-->
 <div class="row">
-   <form id="filter_form" method="POST" action="{{ url_for('search') }}"  method="POST">
+   <form id="filter_form" action="{{ url_for('search') }}"  method="POST">
       <div class="input-field col s12 m6">
          <input type="text" id="query" name="query" minlength="3" class="validate" required>
          <label for="query">Search Drinks</label>
          <!--Submit Button-->
          <div class="row submit-button-wrapper">
             <div class="col s6 m4">
-               <a type="submit" id="filter_btn" class="button btn" aria-label="Search button">
+               <input type="submit" id="filter_btn" class="button btn" aria-label="Search button"/>
                <span>Search</span>
                <i class="material-icons right">search</i>
-               </a>
+
             </div>
             <!--Reset Button-->
             <div class="col s6 m4">
