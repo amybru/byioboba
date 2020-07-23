@@ -111,6 +111,10 @@ body {
 	font-family: 'Sriracha', cursive;
 }
 
+.refresh-btn {
+    font-family: 'Sriracha', cursive;
+}
+
 .collection-circle {
 	border-radius: 40px;
 	background-color: #ffffff;
