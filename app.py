@@ -109,15 +109,15 @@ def update_drink(boba_id):
     """
     boba = mongo.db.boba
     boba.update({'_id': ObjectId(boba_id)},
-       {
-        'drink_name': request.form.get('drink_name'),
-        'drink_type': request.form.get('drink_type'),
-        'tea_type': request.form.get('tea_type'),
-        'decaf': request.form.get('decaf'),
-        'top': request.form.get('top'),
-        'sweet': request.form.get('sweet'),
-        'ice': request.form.get('ice')
-        })
+                {
+                 'drink_name': request.form.get('drink_name'),
+                 'drink_type': request.form.get('drink_type'),
+                 'tea_type': request.form.get('tea_type'),
+                 'decaf': request.form.get('decaf'),
+                 'top': request.form.get('top'),
+                 'sweet': request.form.get('sweet'),
+                 'ice': request.form.get('ice')
+                })
     return redirect(url_for('get_drink'))
 
 
