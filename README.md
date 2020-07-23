@@ -48,7 +48,7 @@ I drew my wireframes for this website using Procreate on the iPad. I have made t
 * [View One Drink Page- Mobile View](/wireframes/wf_mobile_view.jpg "View drink-mobile")
 
  
-There are some differences between my wireframes and my final website. This was due to visual preferences and other users who tested my website. 
+There are some differences between my wireframes and my final website. This was due to visual preferences and suggestions from other users who tested my website. 
 
 ### Data Architecture
 Before building my project, I discussed what kind of data structure would be good for this project with the tutors. They all gave some valuable advice. Below are what the collections look like from the database.
@@ -93,7 +93,7 @@ Located in the edit drink page, the delete modal can be found by clicking a butt
 The modal appears with a prompt that asks if the user is sure they want to delete. Clicking a confirm will call the delete function, deleting the drink from the database.
 
 ### Features Left to Implement
-* In the add drink and edit drink forms, I would like for the user to be able to add their own drink to the database. 
+* In the add drink and edit drink forms, I would like for the user to be able to request new ingredients to add to the database. 
 
 * I would love to implement a rating stystem so that users can let others know how good or bad they are. This will also help small buisnesses to see what kinds of combinations their customers enjoy, so as to make better recomendations and drink offerings in their stores.
 
