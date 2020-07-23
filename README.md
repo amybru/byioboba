@@ -141,9 +141,6 @@ Git and Git Hub were used for version control.
 [Heroku](https://devcenter.heroku.com/)
 Used to deploy the final website
 
-Final website link:  
-
-
 
 # Testing
 ### Code Validators
@@ -207,6 +204,114 @@ I have tested my user stories and documented each of the steps that each user wo
 
 
 ### Manual Testing
+ 
+###### Overall Responsiveness 
+
+* Planning: This project was required to be a responsive and mobile friendly web application. Materialize was chosen as my main framework and makes use of its components in a way that results in a clean, minimalistic view on all scren types.
+
+* Testing: Testing was done using the Google Chrome Developer tools throughout the project. Testing using the required Materialize class modifiers made for simple and quick use. There were bugs found in connection with the sidenav, modal, and select elements. These required some Javascript. More details about this in the "Bugs" section.
+
+* Result: The website is clean, minimalistic, and responsive for all screen sized. Tests all pass as expected.
+
+
+###### Navbar (located on all pages)
+
+* Planning: A navbar was required to make all pages on the website easy to access and user friendly. This is primarily created using Materialize, but styled with additional CSS.
+
+* Testing: Testing is as follows:
+    1. Visit the home page (index.html) on a large (lg) desktop screen.
+    2. Hover over Nav links (Browse Drinks, BYOBoba, +) to check the hover effect
+    3. Click on the "Browse Drinks" button, will be directed to browse drinks page (drinks.html)
+    4. Click on the "BYOBoba" name, will be directed to the home page (index.html)
+    5. Click on the plus sign "+" , will be taken to the add drink form (addDrink.html)
+    6. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the navbar is responsive. The navbar should show a hamburger toggler icon, which can then be clicked to open a side nav and reveal the hidden links.
+    7. Hover over Nav links (BYOBoba, Browse Drinks, Add Drink) to check the hover effect
+    8. Click on the "BYOBoba" name, will be directed to the home page (index.html)
+    9. Click on the "Browse Drinks" link, will be directed to browse drinks page (drinks.html)
+    10. Click on the "Add Drink" link, will be taken to the add drink form (addDrink.html)
+
+* Results: At the time of submitting this project, all tests are passed
+
+###### Footer (located on all pages)
+
+* Planning: A footer was planned as a design choice to give a completed look to each page, so that when the user reaches the footer, they know they have come to the bottom of the page, no more content is to be loaded beneath.
+
+* Testing: The footer testing is as follows:
+    1. Navigate to the bottom of each page, using a large- desktop screen
+    2. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the footer is responsive. 
+    3. Make sure the footer apears at the bottom of the page with no content below
+
+* Results: All tests pass as expected, content is displayed in the middle bottom of each page
+
+
+###### Home Page (index.html)
+
+* Planning: A main landing page was required for when the user first visits the site. Therefore, it was designed to be a simple page with a call to action. This page mainly contains two buttons- one to view all drinks from the database and one for the user to add their own drink.
+
+* Testing: Testing these buttons on the main page is as follows:
+    1. Hover over "Browse Drinks" button to check the hover effect
+    2. Click on "Browse Drinks" button to be taken to the Drinks page (drinks.html)
+    3. Hover over "Add Your Favorite Drink Here" button to check the hover effect
+    4. Click on "Add Your Favorite Drink Here" to be taken to the add drink form (addDrink.html)
+    Testing was also required to make sure the pictures and content were responsive. This was done as follows:
+    1. Alter scrren size from desktop (large) to medium devices (<992px) to check whether the pictures and text are responsive and look pleasing using the grid feature of Materialize. 
+
+* Result: Testing passed as expected
+
+
+###### View All Drinks Page (drinks.html)
+
+* Planning: A page was required to allow the user to view all drinks in the database with an option to click on them to find further information. The grid system was utilized to give the entries rendered a clean look.
+
+* Testing: Testing this drinks page is as follows:
+    1. Navigate to drinks.html
+    2. Hover over each drink entry to check the hover effect, link and background colors should change
+    3. Click on each entry to be taken to its specific drink card page. 
+    4. Alter screen size from desktop (large) to medium devices to check whether the entries change to hold two per row, according to the grid system. 
+    5. Alter screen size from medium to small devices to check whether the entries change to hold one per row, according to the grid system. 
+
+* Result: All tests passed as expected and responsive
+
+
+###### Drink Card Page (drinkCard.html)
+
+* Planning: When desining this website, it was decided that there was simply too much information for each drink to be shown to the user on the drinks.html page. Thus, a new page was created so the user could view the details in a clean and minimalistic format. This page also proved to be a good place to call the edit drink function in the form of a button near the bottom of the page.
+
+* Testing: Testing the drink card i as follows:
+    1. Navigate to drink card by clicking on an entry in the browse drinks page
+    2. Check to see data apears as expected
+    3. Hover over "Edit Drink" button to check the hover effect
+    4. Click on "Edit Drink" button to be taken to the edit drink form
+    5. Hover over "Back to search" button to check the hover effect
+    6. Click on the "Back to search" button to be taken back to the previous page
+
+* Result: Initially, the data was returning eight times, this was caused by an unnecessary for loop (more details in bugs section). In the end, all tests passed as expected, data is rendered correctly.
+
+
+###### Add Drink/Edit Drink Pages (addDrink.html, editDrink.html)
+
+* Planning: As creating and updating are two important opperations in demonstrating CRUD functionallity, it was important to have a good form that was easy for the user to add or edit their own drinks. The forms were designed to follow the same format, with the add form being empty, and the edit form populated with previously added fields.
+
+* Testing: Testing the Add and Edit forms are as follows:
+    1. Navigate to add drink page or edit drink page
+    2. Check that on clicking Add/Edit (the submit button), all blank inputs turn red and error message appears. Check that fields turn green on the input of a value.
+    3. Check that on clicking Add/Edit (the submit button) when all fields are filled out, that the user is redirected to the browse drinks page (drinks.html)
+
+* Result: All tests passed as expected. The user is able to create or update any drink in the database.
+
+
+###### Delete Drink Modal (located on editDrink.html)
+
+* Planning: The "D" in CRUD functionality, standing for delete required the website to have a function to delete a drink from the database. This was done as a modal, called by a button at the bottom of the edit drink form. The modal features an "Are you sure?" message as well as a button to return to the previous page and a button to complete the action of deleting the drink.
+
+* Testing: Testing for the Delete Modal is as follows
+    1. Navigate to a specific drink's edit drink page
+    2. At the bottom of the page, click on the orange "Delete" button
+    3. Modal appears with an "Are you sure?" message
+    4. Choose "Oops take me back" to return to the previous page, or "Delete" to remove the drink from the database and be redirected to the browse drinks page
+    5. Check that the previously deleted entry no longer appears in the list
+
+* Result: Tests pass as expected. Once the final delete button is clicked, the drink is deleted from the database.
 
 
 ### Bugs
@@ -215,35 +320,35 @@ Bug: Data was coming through eight times on the drinkCard.html page
 
 * Fix: I had a for loop in my code, looping through the boba collection. This collection has eight items, so every entry was repeating eight times. This for loop was removed.
 
-* Verdict: Data is displayed only once on the drink card page, as expected.
+* Result: Data is displayed only once on the drink card page, as expected.
 
 
 Bug: Navbar hamburger not opening on small screens
 
 * Fix: It was found, with help from the Code Institute Tutors and the slack community that keeping the Javascript required for this project in a separate file, causes this element not to work as expected. Therefore, the Javascript was moved into a script tag in the base.html file.
 
-* Verdict: On medium and small screens, the hamburger icon is able to open and function as expected.
+* Result: On medium and small screens, the hamburger icon is able to open and function as expected.
 
 
 Bug : Select not appearing on add drink or edit drink form
 
 * Fix: Initially a css class was applied with the class !important. Later it was found that the Materialize Javascript required, did not work in a separate javascript file. Javascript was added by means of a script tag in the base.html file. 
 
-* Verdict: The select now works as Materialize expects it to.
+* Result: The select now works as Materialize expects it to.
 
 
 Bug: Delete modal not opening when the delete button is clicked
 
 * Fix: It was found in connection with the previous two bugs, that the javascript was moved into the base.html file. However, the modal was still not opening. After comparing my code with the Materialize docs, it was found that the button to open the modal contained an outdated class. This was changed.
 
-* Verdict: Delete modal is now able to open when the button on the editDrink.html page is clicked. 
+* Result: Delete modal is now able to open when the button on the editDrink.html page is clicked. 
 
 
 Bug: Issues with connecting to MongoDB database
 
 * Fix: It was realized that the login for the mongodb website was used in the connection string, instead of the password for my database. These passwords were reset and environment variable was set up.
 
-* Verdict: Data is able to be posted to and retrieved from the database.
+* Result: Data is able to be posted to and retrieved from the database.
 
 
 # Deployment 
